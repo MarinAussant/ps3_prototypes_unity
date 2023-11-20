@@ -8,9 +8,6 @@ using UnityEngine.UI;
 public class PagesContainer : MonoBehaviour
 {
 
-    // Detection bouton click
-    public LayerMask layerButton;
-
     // Detection swipe
     private Vector2 startTouchPosition;
     private Vector2 endTouchPosition;
@@ -45,37 +42,17 @@ public class PagesContainer : MonoBehaviour
         {
             nextPages[1] = Instantiate(pagesList[1], new Vector3(transform.position.x + 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z), transform.parent.rotation);
             nextPages[1].transform.SetParent(transform, false);
+            nextPages[1].transform.position = new Vector3(transform.position.x + 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z);
         }
         actualPages[1] = Instantiate(pagesList[0], new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z), transform.parent.rotation);
         actualPages[1].transform.SetParent(transform, false);
+        actualPages[1].transform.position = new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        /* Click avec souris
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray rayClick = Camera.main.ScreenPointToRay(Input.mousePosition);
-            //Debug.DrawRay(rayClick.origin, rayClick.direction * 10f, Color.green, 1f);
-
-            if (Physics.Raycast(rayClick, out RaycastHit hitInfo, 10, layerButton))
-            {
-
-                if (hitInfo.collider.gameObject.name.Contains("Left"))
-                {
-                    TurnLeftPage();
-                }
-                else if (hitInfo.collider.gameObject.name.Contains("Right"))
-                {
-                    TurnRightPage();
-                }
-            }
-            
-        }
-        */
 
         // Swipe
         if (canSwipe)
@@ -165,6 +142,7 @@ public class PagesContainer : MonoBehaviour
                 {
                     nextPages[1] = Instantiate(pagesList[numPages[1]], new Vector3(transform.position.x + 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z), transform.parent.rotation);
                     nextPages[1].transform.SetParent(transform, false);
+                    nextPages[1].transform.position = new Vector3(transform.position.x + 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z);
                 }
                 else
                 {
@@ -220,6 +198,7 @@ public class PagesContainer : MonoBehaviour
                 {
                     nextPages[0] = Instantiate(pagesList[numPages[0] - 2], new Vector3(transform.position.x - 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z), transform.parent.rotation);
                     nextPages[0].transform.SetParent(transform, false);
+                    nextPages[0].transform.position = new Vector3(transform.position.x - 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z);
                 }
                 else
                 {
