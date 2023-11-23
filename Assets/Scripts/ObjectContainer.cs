@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class ObjectContainer : MonoBehaviour
 {
 
     public List<GameObject> objects = new List<GameObject>();
-    public GameObject[] receptacle;
-
     public GameObject needObject;
 
     // Start is called before the first frame update
