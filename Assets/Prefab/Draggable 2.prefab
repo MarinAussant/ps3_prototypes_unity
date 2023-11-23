@@ -121,3 +121,4 @@ MonoBehaviour:
   isDragging: 0
   isHovering: 0
   himSelfPrevizualisation: {fileID: 6518841714000651226, guid: f835b98623ca8b345a6ff023bf3cfc61, type: 3}
+  verifCode: 6472

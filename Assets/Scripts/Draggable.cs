@@ -15,6 +15,8 @@ public class Draggable : MonoBehaviour
     private GameObject tempPreview;
     private GameObject receptacle;
 
+    public int verifCode;
+
     // Start is called before the first frame update
     void Start()
     {

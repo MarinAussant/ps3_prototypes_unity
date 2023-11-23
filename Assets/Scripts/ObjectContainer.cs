@@ -26,7 +26,7 @@ public class ObjectContainer : MonoBehaviour
     {
         if (objects.Count > 0)
         {
-            if (needObject == objects[0]) return true;
+            if (needObject.GetComponent<Draggable>().verifCode == objects[0].GetComponent<Draggable>().verifCode) return true;
             else return false;
         }
         else return false;
