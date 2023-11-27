@@ -42,7 +42,7 @@ public class OpenValise : MonoBehaviour
                     if (Camera.main.GetComponent<CameraMovement>().onDownValise)
                     {
                         Camera.main.GetComponent<CameraMovement>().MovementToInitial(duration);
-                        StartCoroutine(SmoothClose(duration, new Vector3(0, -90, -90)));
+                        //StartCoroutine(SmoothClose(duration, new Vector3(0, -90, -90)));
                     }
 
                     if (Camera.main.GetComponent<CameraMovement>().onTopValise)
