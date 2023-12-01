@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraMovement : MonoBehaviour
 {
 
-    public bool onDownValise;
-    public bool onTopValise;
+    public bool onDownValise = false;
+    public bool onTopValise = false;
     public bool offValise = true;
 
     public Vector3 positionValiseDown;
@@ -18,13 +19,22 @@ public class CameraMovement : MonoBehaviour
     public Vector3 rotationValiseTop;
     public Vector3 rotationInitial;
 
-    void Start()
+    public Button enterValiseButton;
+    public Button getCarnetButton;
+
+    //private Button activeButton;
+
+
+    private void Start()
     {
-        
+        offValise = true;
     }
 
     public void MovementToValiseDown(float duration)
     {
+        //enterValiseButton.interactable = false;
+        enterValiseButton.gameObject.SetActive(false);
+
         onTopValise = false;
         offValise = false;
 
@@ -33,6 +43,9 @@ public class CameraMovement : MonoBehaviour
 
     public void MovementToValiseTop(float duration)
     {
+        //getCarnetButton.interactable = false;
+        getCarnetButton.gameObject.SetActive(false);
+
         onDownValise = false;
         offValise = false;
 
@@ -42,10 +55,18 @@ public class CameraMovement : MonoBehaviour
 
     public void MovementToInitial(float duration)
     {
+        //getCarnetButton.interactable = false;
+        getCarnetButton.gameObject.SetActive(false);
+
         onTopValise = false;
         onDownValise = false;
 
         StartCoroutine(ToInitial(duration));
+    }
+
+    public void TakeCarnet()
+    {
+        getCarnetButton.gameObject.SetActive(false);
     }
 
     IEnumerator ToValiseDown(float duration)
@@ -77,6 +98,10 @@ public class CameraMovement : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(rotationValiseDown);
         transform.position = positionValiseDown;
+
+        //getCarnetButton.interactable = true;
+        enterValiseButton.gameObject.SetActive(false);
+        getCarnetButton.gameObject.SetActive(true);
 
         onDownValise = true;
 
@@ -146,8 +171,13 @@ public class CameraMovement : MonoBehaviour
         transform.rotation = Quaternion.Euler(rotationInitial);
         transform.position = positionInitial;
 
+        //enterValiseButton.interactable = true;
+        getCarnetButton.gameObject.SetActive(false);
+        enterValiseButton.gameObject.SetActive(true);
+
         offValise = true;
 
     }
+
 
 }

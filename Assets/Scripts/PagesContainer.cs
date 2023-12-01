@@ -66,7 +66,7 @@ public class PagesContainer : MonoBehaviour
             {
                 endTouchPosition = Input.GetTouch(0).position;
 
-                if (endTouchPosition.x < startTouchPosition.x)
+                if (endTouchPosition.x < startTouchPosition.x - 300)
                 {
                     canSwipe = false;
                     if (focusRight)
@@ -83,7 +83,7 @@ public class PagesContainer : MonoBehaviour
 
                 }
 
-                if (endTouchPosition.x > startTouchPosition.x)
+                if (endTouchPosition.x > startTouchPosition.x + 300)
                 {
                     canSwipe = false;
                     if (focusRight)

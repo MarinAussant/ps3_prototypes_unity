@@ -26,9 +26,9 @@ public class OpenValise : MonoBehaviour
             {
                 endTouchPosition = Input.GetTouch(0).position;
 
-                if (endTouchPosition.y < startTouchPosition.y)
+                if (endTouchPosition.y < startTouchPosition.y - 500 && endTouchPosition.x < startTouchPosition.x +250 && endTouchPosition.x > startTouchPosition.x - 250)
                 {
-                  
+                
                     if (Camera.main.GetComponent<CameraMovement>().onDownValise)
                     {
                         Camera.main.GetComponent<CameraMovement>().MovementToValiseTop(duration/2);
@@ -36,13 +36,13 @@ public class OpenValise : MonoBehaviour
 
                 }
 
-                if (endTouchPosition.y > startTouchPosition.y)
+                if (endTouchPosition.y > startTouchPosition.y + 500 && endTouchPosition.x < startTouchPosition.x + 250 && endTouchPosition.x > startTouchPosition.x - 250)
                 {
                     
                     if (Camera.main.GetComponent<CameraMovement>().onDownValise)
                     {
                         Camera.main.GetComponent<CameraMovement>().MovementToInitial(duration);
-                        //StartCoroutine(SmoothClose(duration, new Vector3(0, -90, -90)));
+                        StartCoroutine(SmoothOpen(duration, new Vector3(0, 180, 0)));
                     }
 
                     if (Camera.main.GetComponent<CameraMovement>().onTopValise)
@@ -56,11 +56,9 @@ public class OpenValise : MonoBehaviour
     }
     public void OnOpenClick()
     {
-
-        //transform.Rotate(new Vector3(-1,0,0), 90);
         if (!isOpen)
         {
-            StartCoroutine(SmoothOpen(duration, new Vector3(0, -90, -90)));
+            StartCoroutine(SmoothOpen(duration, new Vector3(-90, 180, 0)));
             Camera.main.GetComponent<CameraMovement>().MovementToValiseDown(duration);
         }
        
@@ -71,17 +69,16 @@ public class OpenValise : MonoBehaviour
     IEnumerator SmoothOpen(float duration, Vector3 degres)
     {
         float timeStamp = 0f;
+        Quaternion rotationActuelle = transform.rotation;
 
         while (timeStamp < duration)
         {
 
             transform.rotation = Quaternion.Lerp(
-            transform.rotation,
-            new Quaternion(degres.x, degres.y, degres.z, 0),
-            Time.deltaTime*timeStamp / (duration*10) 
+            rotationActuelle,
+            Quaternion.Euler(degres),
+            timeStamp / duration
             );
-
-            
 
             timeStamp += Time.deltaTime;
 
@@ -89,24 +86,24 @@ public class OpenValise : MonoBehaviour
 
         }
 
-        transform.rotation = new Quaternion(degres.x, degres.y, degres.z, 0);
-        isOpen = true;
+        transform.rotation = Quaternion.Euler(degres);
+        if (isOpen) isOpen = false;
+        else isOpen = true;
     }
 
-    /*IEnumerator SmoothOpen(float duration, Vector3 degres)
+    IEnumerator SmoothClose(float duration, Vector3 degres)
     {
         float timeStamp = 0f;
+        Quaternion rotationActuelle = transform.rotation;
 
         while (timeStamp < duration)
         {
 
             transform.rotation = Quaternion.Lerp(
-            transform.rotation,
-            new Quaternion(degres.x, degres.y, degres.z, 0),
-            Time.deltaTime * timeStamp / (duration * 10)
+            rotationActuelle,
+            Quaternion.Euler(degres),
+            timeStamp / duration
             );
-
-
 
             timeStamp += Time.deltaTime;
 
@@ -114,8 +111,7 @@ public class OpenValise : MonoBehaviour
 
         }
 
-        transform.rotation = new Quaternion(degres.x, degres.y, degres.z, 0);
-        isOpen = true;
+        transform.rotation = Quaternion.Euler(degres);
+        isOpen = false;
     }
-    */
 }
