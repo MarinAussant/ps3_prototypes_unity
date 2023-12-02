@@ -40,7 +40,7 @@ public class Draggable : MonoBehaviour
 
     public Vector3 TouchPosition()
     {
-        return Camera.main.ScreenToWorldPoint(new Vector3(Input.touches[0].position.x, Input.touches[0].position.y, Camera.main.nearClipPlane + 2.5f));
+        return Camera.main.ScreenToWorldPoint(new Vector3(Input.touches[0].position.x, Input.touches[0].position.y, Camera.main.nearClipPlane + 8.0f));
     }
 
     public void StartDrag()
@@ -65,7 +65,6 @@ public class Draggable : MonoBehaviour
                         }
                     }
                 }
-                
             }
         }
     }
@@ -111,6 +110,12 @@ public class Draggable : MonoBehaviour
         {
             isHovering = false;
             Destroy(tempPreview);
+
+            if (receptacle)
+            {
+                    receptacle.GetComponent<ObjectContainer>().objects.Clear();
+                    receptacle = null;
+            }
         }
     }
 }

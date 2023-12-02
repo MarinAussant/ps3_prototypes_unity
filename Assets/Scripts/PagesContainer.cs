@@ -20,7 +20,7 @@ public class PagesContainer : MonoBehaviour
     private GameObject[] nextPages;
     private int[] numPages;
 
-    private Vector3 frontPageOffset = new Vector3(0, -0.020f,+0.00f);
+    private Vector3 frontPageOffset = new Vector3(0, -0.008f,-0.025f);
 
     private bool focusRight;
     public float timeToAction;
@@ -40,13 +40,15 @@ public class PagesContainer : MonoBehaviour
 
         if (pagesList[1])
         {
-            nextPages[1] = Instantiate(pagesList[1], new Vector3(transform.position.x + 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z), transform.parent.rotation);
+            nextPages[1] = Instantiate(pagesList[1]);
             nextPages[1].transform.SetParent(transform, false);
             nextPages[1].transform.position = new Vector3(transform.position.x + 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z);
+            nextPages[1].transform.rotation = transform.rotation;
         }
-        actualPages[1] = Instantiate(pagesList[0], new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z), transform.parent.rotation);
+        actualPages[1] = Instantiate(pagesList[0]);
         actualPages[1].transform.SetParent(transform, false);
         actualPages[1].transform.position = new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z);
+        actualPages[1].transform.rotation = transform.rotation;
 
     }
 
@@ -140,9 +142,10 @@ public class PagesContainer : MonoBehaviour
 
                 if (numPages[1] < pagesList.Length)
                 {
-                    nextPages[1] = Instantiate(pagesList[numPages[1]], new Vector3(transform.position.x + 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z), transform.parent.rotation);
+                    nextPages[1] = Instantiate(pagesList[numPages[1]]);
                     nextPages[1].transform.SetParent(transform, false);
                     nextPages[1].transform.position = new Vector3(transform.position.x + 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z);
+                    nextPages[1].transform.rotation = transform.rotation;
                 }
                 else
                 {
@@ -196,9 +199,10 @@ public class PagesContainer : MonoBehaviour
 
                 if (numPages[0] > 1)
                 {
-                    nextPages[0] = Instantiate(pagesList[numPages[0] - 2], new Vector3(transform.position.x - 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z), transform.parent.rotation);
+                    nextPages[0] = Instantiate(pagesList[numPages[0] - 2]);
                     nextPages[0].transform.SetParent(transform, false);
                     nextPages[0].transform.position = new Vector3(transform.position.x - 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z);
+                    nextPages[0].transform.rotation = transform.rotation;
                 }
                 else
                 {
