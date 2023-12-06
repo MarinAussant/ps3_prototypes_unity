@@ -33,7 +33,7 @@ public class Draggable : MonoBehaviour
         if (isDragging)
         {
             touchPosition = TouchPosition();
-            transform.position = new Vector3(touchPosition.x, touchPosition.y, transform.position.z); 
+            transform.parent.position = new Vector3(touchPosition.x, touchPosition.y, transform.position.z); 
         }
 
     }
@@ -81,8 +81,8 @@ public class Draggable : MonoBehaviour
                 {
                     if(isHovering && receptacle.GetComponent<ObjectContainer>().objects.Count == 0)
                     {
-                        transform.position = new Vector3(tempPreview.transform.position.x, tempPreview.transform.position.y, tempPreview.transform.position.z - 0.1f);
-                        transform.rotation = tempPreview.transform.rotation;
+                        transform.parent.position = new Vector3(tempPreview.transform.position.x, tempPreview.transform.position.y, tempPreview.transform.position.z - 0.1f);
+                        transform.parent.rotation = tempPreview.transform.rotation;
                         receptacle.GetComponent<ObjectContainer>().objects.Add(gameObject);
                         Debug.Log(receptacle.GetComponent<ObjectContainer>().Verify());
                         Destroy(tempPreview);
