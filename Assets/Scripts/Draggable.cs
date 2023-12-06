@@ -97,7 +97,7 @@ public class Draggable : MonoBehaviour
         if(objects.gameObject.tag == "TriggerHoverReceptacle")
         {
             isHovering = true;
-            tempPreview = Instantiate(himSelfPrevizualisation, objects.transform.position, Quaternion.Euler(0, 0, 0));
+            tempPreview = Instantiate(himSelfPrevizualisation);
             tempPreview.transform.position = objects.transform.parent.position;
             tempPreview.transform.rotation = objects.transform.rotation;
             receptacle = objects.transform.parent.gameObject;
