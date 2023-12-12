@@ -19,6 +19,13 @@ public class CarnetObject : MonoBehaviour
     public GameObject physicsCarnet;
     private GameObject actualPhysicsCarnet;
 
+    private TouchManager touchManager;
+
+    private void Start()
+    {
+        touchManager = FindAnyObjectByType<TouchManager>();
+    }
+
     public void takeCarnet()
     {
         if (isTake)
@@ -27,9 +34,12 @@ public class CarnetObject : MonoBehaviour
         }
         else
         {
-            isTake = true;
-            StartCoroutine(smoothTakeCarnet(duration, outPosition, finalPosition, finalRotation));
-            Camera.main.GetComponent<CameraMovement>().TakeCarnet();
+            if (touchManager.lastTouchIsClick())
+            {
+                isTake = true;
+                StartCoroutine(smoothTakeCarnet(duration, outPosition, finalPosition, finalRotation));
+                Camera.main.GetComponent<CameraMovement>().TakeCarnet();
+            }
         }
     }
 

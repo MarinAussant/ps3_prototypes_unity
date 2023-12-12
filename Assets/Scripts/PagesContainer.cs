@@ -27,10 +27,15 @@ public class PagesContainer : MonoBehaviour
     public float offsetFocus;
     private bool canSwipe = true;
 
+    private TouchManager touchManager;
+
 
     // Start is called before the first frame update
     void Start()
     {
+
+        touchManager = FindAnyObjectByType<TouchManager>();
+
         focusRight = true;
 
         actualPages = new GameObject[2];
@@ -58,52 +63,39 @@ public class PagesContainer : MonoBehaviour
 
         // Swipe
         if (canSwipe)
-        {
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {   
+            if (touchManager.isSwipeLeft)
             {
-                startTouchPosition = Input.GetTouch(0).position;
+                canSwipe = false;
+                if (focusRight)
+                {
+                    TurnRightPage();
+                    StartCoroutine(focusOnOtherPage(new Vector3(transform.parent.position.x + offsetFocus, transform.parent.position.y, transform.parent.position.z), timeToAction));
+                    focusRight = false;
+                }
+                else
+                {
+                    StartCoroutine(focusOnOtherPage(new Vector3(transform.parent.position.x - offsetFocus, transform.parent.position.y, transform.parent.position.z), timeToAction));
+                    focusRight = true;
+                }
             }
 
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+            if (touchManager.isSwipeRight)
             {
-                endTouchPosition = Input.GetTouch(0).position;
-
-                if (endTouchPosition.x < startTouchPosition.x - 300)
+                canSwipe = false;
+                if (focusRight)
                 {
-                    canSwipe = false;
-                    if (focusRight)
-                    {
-                        TurnRightPage();
-                        StartCoroutine(focusOnOtherPage(new Vector3(transform.parent.position.x + offsetFocus, transform.parent.position.y, transform.parent.position.z), timeToAction));
-                        focusRight = false;
-                    }
-                    else
-                    {
-                        StartCoroutine(focusOnOtherPage(new Vector3(transform.parent.position.x - offsetFocus, transform.parent.position.y, transform.parent.position.z), timeToAction));
-                        focusRight = true;
-                    }
-
+                    StartCoroutine(focusOnOtherPage(new Vector3(transform.parent.position.x + offsetFocus, transform.parent.position.y, transform.parent.position.z), timeToAction));
+                    focusRight = false;
                 }
-
-                if (endTouchPosition.x > startTouchPosition.x + 300)
+                else
                 {
-                    canSwipe = false;
-                    if (focusRight)
-                    {
-                        StartCoroutine(focusOnOtherPage(new Vector3(transform.parent.position.x + offsetFocus, transform.parent.position.y, transform.parent.position.z), timeToAction));
-                        focusRight = false;
-                    }
-                    else
-                    {
-                        TurnLeftPage();
-                        StartCoroutine(focusOnOtherPage(new Vector3(transform.parent.position.x - offsetFocus, transform.parent.position.y, transform.parent.position.z), timeToAction));
-                        focusRight = true;
-                    }
-
+                    TurnLeftPage();
+                    StartCoroutine(focusOnOtherPage(new Vector3(transform.parent.position.x - offsetFocus, transform.parent.position.y, transform.parent.position.z), timeToAction));
+                    focusRight = true;
                 }
             }
         }
-
     }
 
     public void TurnRightPage()

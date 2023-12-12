@@ -7,49 +7,38 @@ public class OpenValise : MonoBehaviour
 
     public bool isOpen = false;
 
-    // Detection swipe
-    private Vector2 startTouchPosition;
-    private Vector2 endTouchPosition;
+    private TouchManager touchManager;
 
     public float duration;
+
+    private void Start()
+    {
+        touchManager = FindAnyObjectByType<TouchManager>();
+    }
 
     private void Update()
     {
         if (isOpen)
         {
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            if (touchManager.isSwipeDown)
             {
-                startTouchPosition = Input.GetTouch(0).position;
-            }
-
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
-            {
-                endTouchPosition = Input.GetTouch(0).position;
-
-                if (endTouchPosition.y < startTouchPosition.y - 500 && endTouchPosition.x < startTouchPosition.x +250 && endTouchPosition.x > startTouchPosition.x - 250)
+                if (Camera.main.GetComponent<CameraMovement>().onDownValise)
                 {
-                
-                    if (Camera.main.GetComponent<CameraMovement>().onDownValise)
-                    {
-                        Camera.main.GetComponent<CameraMovement>().MovementToValiseTop(duration/2);
-                    }
-
+                    Camera.main.GetComponent<CameraMovement>().MovementToValiseTop(duration / 2);
                 }
 
-                if (endTouchPosition.y > startTouchPosition.y + 500 && endTouchPosition.x < startTouchPosition.x + 250 && endTouchPosition.x > startTouchPosition.x - 250)
+            }
+            if (touchManager.isSwipeUp) 
+            {
+                if (Camera.main.GetComponent<CameraMovement>().onDownValise)
                 {
-                    
-                    if (Camera.main.GetComponent<CameraMovement>().onDownValise)
-                    {
-                        Camera.main.GetComponent<CameraMovement>().MovementToInitial(duration);
-                        StartCoroutine(SmoothOpen(duration, new Vector3(0, 180, 0)));
-                    }
+                    Camera.main.GetComponent<CameraMovement>().MovementToInitial(duration);
+                    StartCoroutine(SmoothOpen(duration, new Vector3(0, 180, 0)));
+                }
 
-                    if (Camera.main.GetComponent<CameraMovement>().onTopValise)
-                    {
-                        Camera.main.GetComponent<CameraMovement>().MovementToValiseDown(duration/2);
-                    }
-
+                if (Camera.main.GetComponent<CameraMovement>().onTopValise)
+                {
+                    Camera.main.GetComponent<CameraMovement>().MovementToValiseDown(duration / 2);
                 }
             }
         }
