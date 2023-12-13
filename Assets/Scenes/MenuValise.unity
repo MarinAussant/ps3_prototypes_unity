@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4482152, g: 0.49744767, b: 0.57198775, a: 1}
+  m_IndirectSpecularColor: {r: 0.44821543, g: 0.4974481, b: 0.5719881, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -951,6 +951,7 @@ MonoBehaviour:
   isSwipeUp: 0
   isSwipeDown: 0
   isDragging: 0
+  draggingObject: {fileID: 0}
   timeToSwipe: 0.5
 --- !u!4 &534773399
 Transform:
@@ -962,7 +963,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.5015478, y: -5.45802, z: 7.888072}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.0035851647, y: 0.0021391152, z: 0.0021391152}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

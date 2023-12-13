@@ -15,16 +15,37 @@ public class TouchManager : MonoBehaviour
 
     public bool isDragging;
 
+    public bool canSwipeHorizontal;
+    public bool canSwipeVertical;
+    public bool canDrag;
+
+
+    public GameObject draggingObject;
+
     private Vector2 startTouchPosition;
     private Vector2 endTouchPosition;
 
     public float timeToSwipe = 0.7f;
     private float timer = 0f;
 
+    private void Start()
+    {
+        isTouching = false;
+        isJustClicking = false;
+
+        isSwipeRight = false;
+        isSwipeLeft = false;
+        isSwipeUp = false;
+        isSwipeDown = false;
+
+        isDragging = false;
+}
 
     // Update is called once per frame
     void Update()
     {
+
+        verifValiseState();
 
         // Start Touching
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
@@ -57,10 +78,10 @@ public class TouchManager : MonoBehaviour
             isTouching = false;
             endTouchPosition = Input.GetTouch(0).position;
 
-            if(timer <= timeToSwipe)
+            if(timer <= timeToSwipe && (canSwipeVertical || canSwipeHorizontal))
             {
                 // Verif Swipe Down
-                if (endTouchPosition.y < startTouchPosition.y - 500 && endTouchPosition.x < startTouchPosition.x + 250 && endTouchPosition.x > startTouchPosition.x - 250)
+                if (endTouchPosition.y < startTouchPosition.y - 500 && endTouchPosition.x < startTouchPosition.x + 250 && endTouchPosition.x > startTouchPosition.x - 250 && canSwipeVertical)
                 {
 
                     isSwipeDown = true;
@@ -68,7 +89,7 @@ public class TouchManager : MonoBehaviour
 
                 }
                 // Verif Swipe Up
-                if (endTouchPosition.y > startTouchPosition.y + 500 && endTouchPosition.x < startTouchPosition.x + 250 && endTouchPosition.x > startTouchPosition.x - 250)
+                if (endTouchPosition.y > startTouchPosition.y + 500 && endTouchPosition.x < startTouchPosition.x + 250 && endTouchPosition.x > startTouchPosition.x - 250 && canSwipeVertical)
                 {
 
                     isSwipeUp = true;
@@ -76,7 +97,7 @@ public class TouchManager : MonoBehaviour
 
                 }
                 // Verif Swipe Left
-                if (endTouchPosition.x < startTouchPosition.x - 500 && endTouchPosition.y < startTouchPosition.y + 250 && endTouchPosition.y > startTouchPosition.y - 250)
+                if (endTouchPosition.x < startTouchPosition.x - 500 && endTouchPosition.y < startTouchPosition.y + 250 && endTouchPosition.y > startTouchPosition.y - 250 && canSwipeHorizontal)
                 {
 
                     isSwipeLeft = true;
@@ -84,7 +105,7 @@ public class TouchManager : MonoBehaviour
 
                 }
                 // Verif Swipe Right
-                if (endTouchPosition.x > startTouchPosition.x + 500 && endTouchPosition.y < startTouchPosition.y + 250 && endTouchPosition.y > startTouchPosition.y - 250)
+                if (endTouchPosition.x > startTouchPosition.x + 500 && endTouchPosition.y < startTouchPosition.y + 250 && endTouchPosition.y > startTouchPosition.y - 250 && canSwipeHorizontal)
                 {
 
                     isSwipeRight = true;
@@ -106,6 +127,35 @@ public class TouchManager : MonoBehaviour
 
     }
 
+    public void verifValiseState()
+    {
+        if (Camera.main.GetComponent<CameraMovement>().onDownValise)
+        {
+            canSwipeVertical = true;
+            canSwipeHorizontal = true;
+            canDrag = false;
+        }
+        if (Camera.main.GetComponent<CameraMovement>().offValise)
+        {
+            canSwipeVertical = false;
+            canSwipeHorizontal = false;
+            canDrag = false;
+        }
+        if (Camera.main.GetComponent<CameraMovement>().onTopValise)
+        {
+            canDrag = true;
+            canSwipeVertical = true;
+            canSwipeHorizontal = false;
+        }
+
+        if (isDragging)
+        {
+            canSwipeVertical = false;
+            canSwipeHorizontal = false;
+            canDrag = false;
+        }
+    }
+
     public bool lastTouchIsClick()
     {
         if (endTouchPosition.y < startTouchPosition.y + 100 && endTouchPosition.y > startTouchPosition.y - 100 && endTouchPosition.x < startTouchPosition.x + 100 && endTouchPosition.x > startTouchPosition.x - 100)
@@ -118,9 +168,7 @@ public class TouchManager : MonoBehaviour
         }
     } 
 
-    public void StartDragging()
-    {
-        
-    }
+    public void SetDraggingObject(GameObject objectDrag) { draggingObject = objectDrag; }
+    public GameObject GetDraggingObject() { return draggingObject; }
 
 }

@@ -17,10 +17,12 @@ public class Draggable : MonoBehaviour
 
     public int verifCode;
 
+    private TouchManager touchManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        touchManager = FindAnyObjectByType<TouchManager>();
     }
 
     // Update is called once per frame
@@ -29,11 +31,20 @@ public class Draggable : MonoBehaviour
 
         StartDrag();
         EndDrag();
-
-        if (isDragging)
+        /*
+        if (touchManager.isDragging)
         {
+            if(touchManager.GetDraggingObject() == gameObject)
+            {
+                touchPosition = TouchPosition();
+                transform.parent.position = new Vector3(touchPosition.x, touchPosition.y, transform.position.z);
+            }
+            
+        }
+        */
+        if(isDragging) {
             touchPosition = TouchPosition();
-            transform.parent.position = new Vector3(touchPosition.x, touchPosition.y, transform.position.z); 
+            transform.parent.position = new Vector3(touchPosition.x, touchPosition.y, transform.position.z);
         }
 
     }
@@ -45,6 +56,7 @@ public class Draggable : MonoBehaviour
 
     public void StartDrag()
     {
+        
         if (Input.touchCount == 1)
         {
             if (Input.touches[0].phase == TouchPhase.Began)
@@ -54,6 +66,8 @@ public class Draggable : MonoBehaviour
                     if(info.collider.gameObject == gameObject)
                     {
                         isDragging = true;
+                        touchManager.isDragging = true;
+                        touchManager.SetDraggingObject(gameObject);
 
                         if (receptacle)
                         {
@@ -67,15 +81,19 @@ public class Draggable : MonoBehaviour
                 }
             }
         }
+        
     }
 
     public void EndDrag()
     {
+        
         if (Input.touchCount == 1)
         {
             if (Input.touches[0].phase == TouchPhase.Ended)
             {
                 isDragging = false;
+                touchManager.isDragging = false;
+                touchManager.SetDraggingObject(null);
 
                 if (receptacle)
                 {
@@ -90,6 +108,7 @@ public class Draggable : MonoBehaviour
                 }
             }
         }
+        
     }
 
     private void OnTriggerEnter(Collider objects)
