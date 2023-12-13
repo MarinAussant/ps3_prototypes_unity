@@ -407,6 +407,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -3240084944888637655, guid: d0f995f2a95ee3d4094979335d45c6e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 780798826}
+    - targetCorrespondingSourceObject: {fileID: -3240084944888637655, guid: d0f995f2a95ee3d4094979335d45c6e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1846726366}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2040542448765327740, guid: d0f995f2a95ee3d4094979335d45c6e8, type: 3}
       insertIndex: -1
@@ -951,6 +954,9 @@ MonoBehaviour:
   isSwipeUp: 0
   isSwipeDown: 0
   isDragging: 0
+  canSwipeHorizontal: 0
+  canSwipeVertical: 0
+  canDrag: 0
   draggingObject: {fileID: 0}
   timeToSwipe: 0.5
 --- !u!4 &534773399
@@ -1638,6 +1644,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722736961}
   m_CullTransparentMesh: 1
+--- !u!1 &1846726365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1846726366}
+  - component: {fileID: 1846726367}
+  m_Layer: 0
+  m_Name: LevelInventaireManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1846726366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846726365}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.29, y: -0.014, z: -0.012}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 195883813}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1846726367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846726365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6def2309fbd1ea049bcca3e3372a57a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventaireList:
+  - {fileID: 11400000, guid: cd68d5735b32acb47a68c96f8399ee90, type: 2}
+  invObjectPrefab: {fileID: 1866690666871621656, guid: 6a8ae07126b843e4490484dda92762f0, type: 3}
 --- !u!4 &1846961609 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5807176644005911710, guid: 0687ab4fa7492344eacdd893edec5a77, type: 3}
