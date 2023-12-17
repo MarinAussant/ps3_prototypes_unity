@@ -44,14 +44,14 @@ public class Draggable : MonoBehaviour
         */
         if(isDragging) {
             touchPosition = TouchPosition();
-            transform.parent.position = new Vector3(touchPosition.x, touchPosition.y, transform.position.z);
+            transform.parent.position = new Vector3(touchPosition.x, touchPosition.y, touchPosition.z /*transform.position.z*/);
         }
 
     }
 
     public Vector3 TouchPosition()
     {
-        return Camera.main.ScreenToWorldPoint(new Vector3(Input.touches[0].position.x, Input.touches[0].position.y, Camera.main.nearClipPlane + 8.0f));
+        return Camera.main.ScreenToWorldPoint(new Vector3(Input.touches[0].position.x, Input.touches[0].position.y, Camera.main.nearClipPlane + 7.5f));
     }
 
     public void StartDrag()
