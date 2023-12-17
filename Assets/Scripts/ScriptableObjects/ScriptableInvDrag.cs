@@ -9,5 +9,7 @@ public class ScriptableInvDrag : ScriptableObject
     public int id;
     public GameObject objectDraggable;
     public Sprite imageRef;
+    [TextArea(15, 20)]
+    public string infoText;
 
 }

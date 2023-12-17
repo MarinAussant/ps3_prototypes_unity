@@ -16,3 +16,4 @@ MonoBehaviour:
   id: 7543
   objectDraggable: {fileID: 6752725160526340700, guid: 9a5e759c1c934774b9ae85f35245639f, type: 3}
   imageRef: {fileID: 21300000, guid: 479caad9b81f92448bf6cf12957cce5f, type: 3}
+  infoText: UN BATEAU QUI NAVIGUE PAR EXEMPLE

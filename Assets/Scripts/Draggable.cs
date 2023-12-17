@@ -16,6 +16,7 @@ public class Draggable : MonoBehaviour
     private GameObject receptacle;
 
     public int verifCode;
+    public ScriptableInvDrag attachScriptableDrag;
 
     private TouchManager touchManager;
 
@@ -105,6 +106,10 @@ public class Draggable : MonoBehaviour
                         Debug.Log(receptacle.GetComponent<ObjectContainer>().Verify());
                         Destroy(tempPreview);
                     }
+                }
+                else
+                {
+                    Debug.Log("ICI FAUT FAIRE EN SORTE QU'IL RETURN DANS L'INVENTAIRE");
                 }
             }
         }
