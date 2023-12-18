@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -8,6 +9,8 @@ public class Draggable : MonoBehaviour
 
     public bool isDragging = false;
     public bool isHovering = false;
+
+    public bool isPlaced = false;
 
     private Vector3 touchPosition;
 
@@ -19,6 +22,7 @@ public class Draggable : MonoBehaviour
     public ScriptableInvDrag attachScriptableDrag;
 
     private TouchManager touchManager;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +71,7 @@ public class Draggable : MonoBehaviour
                     if(info.collider.gameObject == gameObject)
                     {
                         isDragging = true;
+                        isPlaced = false;
                         touchManager.isDragging = true;
                         touchManager.SetDraggingObject(gameObject);
 
@@ -81,8 +86,8 @@ public class Draggable : MonoBehaviour
                     }
                 }
             }
-        }
-        
+        }  
+
     }
 
     public void EndDrag()
@@ -105,15 +110,21 @@ public class Draggable : MonoBehaviour
                         receptacle.GetComponent<ObjectContainer>().objects.Add(gameObject);
                         Debug.Log(receptacle.GetComponent<ObjectContainer>().Verify());
                         Destroy(tempPreview);
+                        isPlaced = true;
+                        FindAnyObjectByType<LevelInventaireManager>().EndDrag(true, gameObject);
+                    }
+                    else
+                    {
+                        FindAnyObjectByType<LevelInventaireManager>().EndDrag(false, gameObject);
                     }
                 }
                 else
                 {
-                    Debug.Log("ICI FAUT FAIRE EN SORTE QU'IL RETURN DANS L'INVENTAIRE");
+                    FindAnyObjectByType<LevelInventaireManager>().EndDrag(false, gameObject);
                 }
             }
         }
-        
+   
     }
 
     private void OnTriggerEnter(Collider objects)

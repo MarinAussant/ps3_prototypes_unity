@@ -23,6 +23,7 @@ public class LevelInventaireManager : MonoBehaviour
     public GameObject infoUiArea;
     public TextMeshProUGUI infoText;
     public Image infoImage;
+    public TextMeshProUGUI infoTitre;
 
     public GameObject SlideLeftButton;
     public GameObject SlideRightButton;
@@ -32,7 +33,6 @@ public class LevelInventaireManager : MonoBehaviour
     void Start()
     {
         is3D = false;
-        isSelecting = null;
 
         infoUiArea.SetActive(false);
         //SlideLeftButton.SetActive(false);
@@ -53,6 +53,8 @@ public class LevelInventaireManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(isSelecting);
+
         if (Input.touchCount == 1)
         {
             if (Input.touches[0].phase == TouchPhase.Began)
@@ -63,24 +65,11 @@ public class LevelInventaireManager : MonoBehaviour
                     {
                         isSelecting = info.collider.gameObject;
                         //StartDrag();
-                        
+
                     }
                 }
             }
         }
-
-        if (isSelecting && !is3D)
-        {        
-            if (TouchPosition().y > -5.15)
-            {
-                StartDrag();
-                is3D = true;
-            }
-            
-        }
-
-        //Verif si drag et pas click, et charger le modèle 3d si c'est le cas
-        //Supprimer la carte de l'inventaire et de la liste, et réactualiser la list.
 
         if (Input.touchCount == 1)
         {
@@ -92,14 +81,31 @@ public class LevelInventaireManager : MonoBehaviour
                     {
                         infoText.text = isSelecting.GetComponent<individualInvElement>().scriptableData.infoText;
                         infoImage.sprite = isSelecting.GetComponent<individualInvElement>().scriptableData.imageRef;
+                        infoTitre.text = isSelecting.GetComponent<individualInvElement>().scriptableData.objectName;
                         infoUiArea.SetActive(true);
                     }
-                    if(is3D) { is3D = false; }
-                }
+                    if(is3D) {
+                        is3D = false;
+                    }
+                    else
+                    {
+                        isSelecting = null;
+                    }
 
-                isSelecting = null;
+                }
             }
         }
+
+        if (isSelecting && !is3D)
+        {
+            if (TouchPosition().y > -5.15)
+            {
+                StartDrag();
+                is3D = true;
+
+            }
+        }
+
     }
 
     public void loadInventaire(int numNiveau)
@@ -185,28 +191,41 @@ public class LevelInventaireManager : MonoBehaviour
             inventaire.Remove(isSelecting.GetComponent<individualInvElement>().scriptableData);
             inventairePlace.Add(isSelecting.GetComponent<individualInvElement>().scriptableData);
 
-           
             ReloadInv();
             
-
             GameObject draggingObject = Instantiate(isSelecting.GetComponent<individualInvElement>().scriptableData.objectDraggable, transform.parent);
             draggingObject.GetComponentInChildren<Draggable>().isDragging = true;
             draggingObject.GetComponentInChildren<Draggable>().attachScriptableDrag = isSelecting.GetComponent<individualInvElement>().scriptableData;
-
         }
     }
 
-    public void EndDrag()
+    public void EndDrag(bool isOnReceptacle, GameObject leDraggable)
     {
-        is3D = false;
+        if (!isOnReceptacle && !leDraggable.GetComponent<Draggable>().isPlaced)
+        {
+            
+            inventairePlace.Remove(leDraggable.GetComponent<Draggable>().attachScriptableDrag);
+            inventaire.Add(leDraggable.GetComponent<Draggable>().attachScriptableDrag);
+            Destroy(leDraggable);
+            isSelecting = null;
+
+            ReloadInv();
+        }
+        if (is3D)
+        {
+            is3D = false;
+        }
+
     }
 
     public void ReloadInv()
     {
+        //GameObject tempIsSelected = isSelecting;
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
         }
+        //isSelecting = tempIsSelected;
 
         if (inventaire.Count > 0)
         {

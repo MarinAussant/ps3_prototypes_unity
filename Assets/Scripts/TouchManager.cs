@@ -85,7 +85,7 @@ public class TouchManager : MonoBehaviour
                 {
 
                     isSwipeDown = true;
-                    Debug.Log("SwipeD");
+                    //Debug.Log("SwipeD");
 
                 }
                 // Verif Swipe Up
@@ -93,7 +93,7 @@ public class TouchManager : MonoBehaviour
                 {
 
                     isSwipeUp = true;
-                    Debug.Log("SwipeU");
+                    //Debug.Log("SwipeU");
 
                 }
                 // Verif Swipe Left
@@ -101,7 +101,7 @@ public class TouchManager : MonoBehaviour
                 {
 
                     isSwipeLeft = true;
-                    Debug.Log("SwipeL");
+                    //Debug.Log("SwipeL");
 
                 }
                 // Verif Swipe Right
@@ -109,7 +109,7 @@ public class TouchManager : MonoBehaviour
                 {
 
                     isSwipeRight = true;
-                    Debug.Log("SwipeR");
+                    //Debug.Log("SwipeR");
 
                 }
 
@@ -118,7 +118,7 @@ public class TouchManager : MonoBehaviour
             if (endTouchPosition.y < startTouchPosition.y + 100 && endTouchPosition.y > startTouchPosition.y - 100 && endTouchPosition.x < startTouchPosition.x + 100 && endTouchPosition.x > startTouchPosition.x - 100)
             {
                 //isJustClicking = true;
-                Debug.Log("JusteClick");
+                //Debug.Log("JusteClick");
             }
 
             timer = 0f;

@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b492ed34371ff654b811bcb4895825c5, type: 3}
   m_Name: DouglasC47
   m_EditorClassIdentifier: 
-  objectName: Douglas C47
+  objectName: Douglas C-47
   id: 8177
   objectDraggable: {fileID: 5086167855366001200, guid: c2b783b2568b17948b2fd5fab26b13e2, type: 3}
   imageRef: {fileID: 21300000, guid: abbbddf6c75e9b841a5bdec39a476c59, type: 3}
-  infoText: UN AVION VROUUUUUM MARCO POLO TOUT SA
+  infoText: "Le Douglas C-47 est un avion de transport am\xE9ricain, polyvalent,
+    robuste et d'entretien ais\xE9. Il fut utilis\xE9 sur tous les fronts durant
+    la Seconde Guerre mondiale. Il est essentiellement utilis\xE9 pour les parachutages,
+    le remorquage des planeurs et le transport de fret. "
