@@ -147,6 +147,20 @@ public class Draggable : MonoBehaviour
    
     }
 
+    public bool VerifyDraggable()
+    {
+        if (receptacle.GetComponent<ObjectContainer>().Verify())
+        {
+            return true;
+        }
+        else
+        {
+            FindAnyObjectByType<LevelInventaireManager>().Dismiss(gameObject);
+            receptacle.GetComponent<ObjectContainer>().objects.Clear();
+            return false;
+        }
+    }
+
     private void OnTriggerEnter(Collider objects)
     {
         if(objects.gameObject.tag == "TriggerHoverReceptacle")
