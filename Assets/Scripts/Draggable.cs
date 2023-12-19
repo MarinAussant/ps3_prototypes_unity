@@ -25,6 +25,10 @@ public class Draggable : MonoBehaviour
 
     public AudioPlacement scriptAudio;
 
+    public GameObject particlePlacement;
+
+    public ParticleSystem particleSystemPlacement;
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +37,9 @@ public class Draggable : MonoBehaviour
 
         //GameObject objectAudio = GameObject.Find("Ouverture");
         scriptAudio = FindAnyObjectByType<AudioPlacement>();
+
+        particlePlacement = GameObject.FindGameObjectsWithTag("particles")[0];
+        particleSystemPlacement = particlePlacement.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -113,6 +120,10 @@ public class Draggable : MonoBehaviour
 
                         // son placement figurine
                         scriptAudio.PlayRandomSound();
+                        particleSystemPlacement.Clear();
+                        particleSystemPlacement.Play();
+                        particlePlacement.transform.position = transform.position;
+                        particlePlacement.transform.rotation = transform.rotation;
 
                         transform.parent.position = new Vector3(tempPreview.transform.position.x, tempPreview.transform.position.y, tempPreview.transform.position.z - 0.1f);
                         transform.parent.rotation = tempPreview.transform.rotation;
