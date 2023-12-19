@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 13e46b7389dc20042b2b90c82e242d5b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.05852329
+      value: 0.0005852329
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 13e46b7389dc20042b2b90c82e242d5b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.05852329
+      value: 0.0005852329
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 13e46b7389dc20042b2b90c82e242d5b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.05852329
+      value: 0.0005852329
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 13e46b7389dc20042b2b90c82e242d5b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 13e46b7389dc20042b2b90c82e242d5b, type: 3}
       propertyPath: m_Name
-      value: C47V2
+      value: C47_Douglas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -123,3 +123,6 @@ MonoBehaviour:
   himSelfPrevizualisation: {fileID: 1828149317036391051, guid: 92a382c12b676e644a0ae55fc7e547eb, type: 3}
   verifCode: 0
   attachScriptableDrag: {fileID: 0}
+  scriptAudio: {fileID: 0}
+  particlePlacement: {fileID: 0}
+  particleSystemPlacement: {fileID: 0}

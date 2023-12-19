@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0a5824f4c7fad254084762c6833bab85, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.011716326
+      value: 0.0001171633
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0a5824f4c7fad254084762c6833bab85, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.011716326
+      value: 0.0001171633
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0a5824f4c7fad254084762c6833bab85, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.011716326
+      value: 0.0001171633
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0a5824f4c7fad254084762c6833bab85, type: 3}
       propertyPath: m_LocalPosition.x
@@ -123,3 +123,6 @@ MonoBehaviour:
   himSelfPrevizualisation: {fileID: 158901763899510292, guid: f426d4d741234b747a7435770d55de73, type: 3}
   verifCode: 0
   attachScriptableDrag: {fileID: 0}
+  scriptAudio: {fileID: 0}
+  particlePlacement: {fileID: 0}
+  particleSystemPlacement: {fileID: 0}

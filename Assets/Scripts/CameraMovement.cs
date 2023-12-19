@@ -35,6 +35,7 @@ public class CameraMovement : MonoBehaviour
     private void Start()
     {
         offValise = true;
+        getCarnetButton.gameObject.SetActive(false);
 
         audioSource.volume = 0f;
     }

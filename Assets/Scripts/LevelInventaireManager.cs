@@ -91,7 +91,7 @@ public class LevelInventaireManager : MonoBehaviour
                     if (touchManager.lastTouchIsClick())
                     {
                         infoText.text = isSelecting.GetComponent<individualInvElement>().scriptableData.infoText;
-                        infoImage.sprite = isSelecting.GetComponent<individualInvElement>().scriptableData.imageRef;
+                        infoImage.sprite = isSelecting.GetComponent<individualInvElement>().scriptableData.infoImageRef;
                         infoTitre.text = isSelecting.GetComponent<individualInvElement>().scriptableData.objectName;
                         infoUiArea.SetActive(true);
                     }
@@ -201,6 +201,7 @@ public class LevelInventaireManager : MonoBehaviour
         level += 1;
         GameObject laMap = GameObject.FindGameObjectsWithTag("Map")[0];
         GameObject newMap = Instantiate(listCartes[level], transform.parent);
+        newMap.transform.eulerAngles = new Vector3 (0,0,newMap.transform.eulerAngles.z);
         newMap.transform.position = laMap.transform.position;
 
         switch (level)
@@ -209,7 +210,7 @@ public class LevelInventaireManager : MonoBehaviour
                 break;
 
             case 1:
-                newMap.transform.position = new Vector3(newMap.transform.position.x + 0.25f,newMap.transform.position.y,newMap.transform.position.z);
+                newMap.transform.position = new Vector3(newMap.transform.position.x,newMap.transform.position.y,newMap.transform.position.z);
                 titreNiveau.text = "Arromanches #1";
                 break;
 
@@ -245,6 +246,7 @@ public class LevelInventaireManager : MonoBehaviour
             ReloadInv();
             
             GameObject draggingObject = Instantiate(isSelecting.GetComponent<individualInvElement>().scriptableData.objectDraggable, transform.parent);
+            draggingObject.transform.eulerAngles = new Vector3(180,0,0);
             draggingObject.GetComponentInChildren<Draggable>().isDragging = true;
             draggingObject.GetComponentInChildren<Draggable>().attachScriptableDrag = isSelecting.GetComponent<individualInvElement>().scriptableData;
         }
