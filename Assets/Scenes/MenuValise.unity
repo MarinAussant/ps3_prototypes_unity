@@ -1765,72 +1765,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1001 &1093064547
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 2050362356}
-    m_Modifications:
-    - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
-      propertyPath: m_Name
-      value: Utah
-      objectReference: {fileID: 0}
-    - target: {fileID: 3279389023401808814, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
-      propertyPath: needObject
-      value: 
-      objectReference: {fileID: 6853376485700761648, guid: 585a7e86393981e44a205435706f77a3, type: 3}
-    - target: {fileID: 3467055623015086921, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.0973
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467055623015086921, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.0125
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467055623015086921, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.037
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467055623015086921, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.95081747
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467055623015086921, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.00000005541368
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467055623015086921, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.00000010430811
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467055623015086921, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.30975184
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467055623015086921, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467055623015086921, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467055623015086921, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 36.089
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
---- !u!4 &1183882756 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3467055623015086921, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
-  m_PrefabInstance: {fileID: 1918677985}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1193281077
 GameObject:
   m_ObjectHideFlags: 0
@@ -2932,6 +2866,8 @@ MonoBehaviour:
   infoText: {fileID: 352383196}
   infoImage: {fileID: 566417290}
   infoTitre: {fileID: 1821511396}
+  bandeArea: {fileID: 0}
+  titreNiveau: {fileID: 1455786080}
   SlideLeftButton: {fileID: 476001469}
   SlideRightButton: {fileID: 2075952806}
 --- !u!1 &1919708036
