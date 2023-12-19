@@ -45,7 +45,7 @@ public class CameraMovement : MonoBehaviour
         onTopValise = false;
         offValise = false;
 
-        audioSource.volume = 0.3f;
+        audioSource.volume = 0.2f;
         audioSource.clip = soundToCarnet;
         audioSource.Play();
 
@@ -60,7 +60,7 @@ public class CameraMovement : MonoBehaviour
         onDownValise = false;
         offValise = false;
 
-        audioSource.volume = 0.3f;
+        audioSource.volume = 0.2f;
         audioSource.clip = soundToMap;
         audioSource.Play();
 
