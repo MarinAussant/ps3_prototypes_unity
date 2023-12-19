@@ -12,6 +12,8 @@ public class PagesContainer : MonoBehaviour
     private Vector2 startTouchPosition;
     private Vector2 endTouchPosition;
 
+    //Rotation Pages
+    public Transform pivotPoint;
 
     // Gestion pages
     public GameObject[] pagesList;
@@ -20,7 +22,7 @@ public class PagesContainer : MonoBehaviour
     private GameObject[] nextPages;
     private int[] numPages;
 
-    private Vector3 frontPageOffset = new Vector3(0, -0.008f,-0.025f);
+    private Vector3 frontPageOffset = new Vector3(0, -0.008f, -0.025f);
 
     private bool focusRight;
     public float timeToAction;
@@ -35,6 +37,7 @@ public class PagesContainer : MonoBehaviour
     {
 
         touchManager = FindAnyObjectByType<TouchManager>();
+        transform.position = new Vector3(transform.position.x, -4.01f, transform.position.z + 0.1f);
 
         focusRight = true;
 
@@ -49,11 +52,13 @@ public class PagesContainer : MonoBehaviour
             nextPages[1].transform.SetParent(transform, false);
             nextPages[1].transform.position = new Vector3(transform.position.x + 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z);
             nextPages[1].transform.rotation = transform.rotation;
+            nextPages[1].transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
         actualPages[1] = Instantiate(pagesList[0]);
         actualPages[1].transform.SetParent(transform, false);
         actualPages[1].transform.position = new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z);
         actualPages[1].transform.rotation = transform.rotation;
+        actualPages[1].transform.localRotation = Quaternion.Euler(0, 180, 0);
 
     }
 
@@ -63,7 +68,7 @@ public class PagesContainer : MonoBehaviour
 
         // Swipe
         if (canSwipe)
-        {   
+        {
             if (touchManager.isSwipeLeft)
             {
                 canSwipe = false;
@@ -113,11 +118,11 @@ public class PagesContainer : MonoBehaviour
             if (actualPages[0] != null)
             {
                 nextPages[0] = actualPages[0];
-                nextPages[0].transform.position = new Vector3(transform.position.x - 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z);
+                nextPages[0].transform.position = new Vector3(pivotPoint.position.x - 1f + frontPageOffset.x, pivotPoint.position.y + frontPageOffset.y - 0.993f, pivotPoint.position.z + frontPageOffset.z - 0.025f);
             }
 
             //On tourne la page
-            StartCoroutine(RightPageAnimation(timeToAction/2, actualPages[1]));
+            StartCoroutine(RightPageAnimation(timeToAction / 2, actualPages[1]));
             //actualPages[1].transform.RotateAround(transform.position, transform.up, 180);
 
             //Cette page devient la page de gauche
@@ -127,7 +132,7 @@ public class PagesContainer : MonoBehaviour
             //La prochain page de droite devient la page de droite (s'il y a une prochaine page de droite)
             if (nextPages[1])
             {
-                
+
                 actualPages[1] = nextPages[1];
                 actualPages[1].transform.position = new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z);
                 numPages[1] = numPages[1] + 1;
@@ -138,12 +143,13 @@ public class PagesContainer : MonoBehaviour
                     nextPages[1].transform.SetParent(transform, false);
                     nextPages[1].transform.position = new Vector3(transform.position.x + 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z);
                     nextPages[1].transform.rotation = transform.rotation;
+                    nextPages[1].transform.localRotation = Quaternion.Euler(0, 180, 0);
                 }
                 else
                 {
                     nextPages[1] = null;
                 }
-           
+
 
             }
             else
@@ -153,7 +159,7 @@ public class PagesContainer : MonoBehaviour
 
         }
 
-   
+
     }
 
     public void TurnLeftPage()
@@ -186,14 +192,14 @@ public class PagesContainer : MonoBehaviour
             {
 
                 actualPages[0] = nextPages[0];
-                actualPages[0].transform.position = new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z);
+                actualPages[0].transform.position = new Vector3(pivotPoint.position.x - 1f, pivotPoint.position.y - 0.993f, pivotPoint.position.z - 0.025f);
                 numPages[0] = numPages[0] - 1;
 
                 if (numPages[0] > 1)
                 {
                     nextPages[0] = Instantiate(pagesList[numPages[0] - 2]);
                     nextPages[0].transform.SetParent(transform, false);
-                    nextPages[0].transform.position = new Vector3(transform.position.x - 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z);
+                    nextPages[0].transform.position = new Vector3(pivotPoint.position.x - 1f + frontPageOffset.x, pivotPoint.position.y + frontPageOffset.y - 0.993f, pivotPoint.position.z + frontPageOffset.z - 0.025f);
                     nextPages[0].transform.rotation = transform.rotation;
                 }
                 else
@@ -222,18 +228,18 @@ public class PagesContainer : MonoBehaviour
             transform.parent.position = Vector3.Lerp(
             transform.parent.position,
             destination,
-            timeStamp / (duration*2)
+            timeStamp / (duration * 2)
             );
 
             timeStamp += Time.deltaTime;
 
             yield return null;
-            
+
         }
 
         transform.parent.position = destination;
         canSwipe = true;
-        
+
     }
 
     IEnumerator RightPageAnimation(float duration, GameObject page)
@@ -244,14 +250,14 @@ public class PagesContainer : MonoBehaviour
         while (timeStamp < duration)
         {
 
-            page.transform.RotateAround(transform.position, transform.up, 180/ (duration / Time.deltaTime));
+            page.transform.RotateAround(pivotPoint.position, transform.up, 180 / (duration / Time.deltaTime));
 
             yield return null;
 
             timeStamp += Time.deltaTime;
         }
 
-        page.transform.position = new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z);
+        page.transform.position = new Vector3(pivotPoint.position.x - 1f, pivotPoint.position.y - 0.993f, pivotPoint.position.z - 0.025f);
         page.transform.rotation = transform.rotation;
 
     }
@@ -264,7 +270,7 @@ public class PagesContainer : MonoBehaviour
         while (timeStamp < duration)
         {
 
-            page.transform.RotateAround(transform.position, transform.up, -180 / (duration / Time.deltaTime));
+            page.transform.RotateAround(pivotPoint.position, transform.up, -180 / (duration / Time.deltaTime));
 
             // Attendez la frame suivante
             yield return null;
@@ -275,6 +281,7 @@ public class PagesContainer : MonoBehaviour
         //transform.rotation = endRotation;
         page.transform.position = new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z);
         page.transform.rotation = transform.rotation;
+        page.transform.localRotation = Quaternion.Euler(0, 180, 0);
 
     }
 

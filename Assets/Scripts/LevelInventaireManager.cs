@@ -40,14 +40,14 @@ public class LevelInventaireManager : MonoBehaviour
 
         inventairePlace = new List<ScriptableInvDrag>();
         inventaire = new List<ScriptableInvDrag>();
-        foreach (ScriptableInvDrag invObject in inventaireList[0].objectList)
+        foreach (ScriptableInvDrag invObject in inventaireList[1].objectList)
         {
             inventaire.Add(invObject);
         }
 
         touchManager = FindAnyObjectByType<TouchManager>();
 
-        loadInventaire(0);
+        loadInventaire(1);
     }
 
     // Update is called once per frame
