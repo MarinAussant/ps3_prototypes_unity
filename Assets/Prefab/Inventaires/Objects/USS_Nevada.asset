@@ -16,6 +16,7 @@ MonoBehaviour:
   id: 0
   objectDraggable: {fileID: 7945507383920602465, guid: 3c91f2afadd5cda48a211e91013202af, type: 3}
   imageRef: {fileID: 21300000, guid: 6608a495a8a20b94e9341fce967dd698, type: 3}
+  infoImageRef: {fileID: 21300000, guid: 07b6e0bd91d7eb84991c8c52329404f6, type: 3}
   infoText: "L'USS Nevada (BB-36) est un cuirass\xE9 de la marine am\xE9ricaine,
     second navire \xE0 \xEAtre nomm\xE9 d'apr\xE8s le 36e \xC9tat am\xE9ricain. Lanc\xE9
     en 1914, le Nevada marquait un bond en avant dans la technologie des dreadnoughts.

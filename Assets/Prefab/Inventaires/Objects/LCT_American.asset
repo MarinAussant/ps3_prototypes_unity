@@ -16,6 +16,7 @@ MonoBehaviour:
   id: 0
   objectDraggable: {fileID: 6853376485700761648, guid: 585a7e86393981e44a205435706f77a3, type: 3}
   imageRef: {fileID: 21300000, guid: 247374307d5db6f45b7e4535f0d210c9, type: 3}
+  infoImageRef: {fileID: 21300000, guid: 5bfc06abf63fd24478f1983a8db9f3dd, type: 3}
   infoText: "Un Landing Craft Tank est une barge de d\xE9barquement destin\xE9e \xE0
     l'assaut amphibie et au transport de chars de combat sur des t\xEAtes de pont.
     Les premiers exemples sont apparus pendant la Seconde Guerre mondiale o\xF9 ils

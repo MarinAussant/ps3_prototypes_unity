@@ -16,6 +16,7 @@ MonoBehaviour:
   id: 8177
   objectDraggable: {fileID: 1683804398375404618, guid: 9a74b0848e3f4ef4a9b91ee9ce50bbf7, type: 3}
   imageRef: {fileID: 21300000, guid: abbbddf6c75e9b841a5bdec39a476c59, type: 3}
+  infoImageRef: {fileID: 21300000, guid: aedfe68c5a81d694c926156ada84a633, type: 3}
   infoText: "Le Douglas C-47 Baptis\xE9 Dakota par la Royal Air Force. C\u2019est
     un avion de transport am\xE9ricain, polyvalent, robuste et d'entretien ais\xE9.
     Il fut utilis\xE9 sur tous les fronts durant la Seconde Guerre mondiale. Il est

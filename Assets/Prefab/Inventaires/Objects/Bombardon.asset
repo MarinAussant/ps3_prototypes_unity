@@ -16,6 +16,7 @@ MonoBehaviour:
   id: 2134
   objectDraggable: {fileID: 6095750776893495118, guid: 67b8c3f6d84e4ae4880f66bae9846818, type: 3}
   imageRef: {fileID: 21300000, guid: 2ad4c8b056125894dbbd64d1f9c057f5, type: 3}
+  infoImageRef: {fileID: 21300000, guid: f24cdd879b07448458614923da5e5018, type: 3}
   infoText: "Les bombardons sont des petits caissons m\xE9talliques en forme de croix,
     flottants et attach\xE9s les un aux autres avec un espace de 15 m\xE8tres. Ils
     avaient pour but d'aplanir les vagues, et ils \xE9taient espac\xE9s de mani\xE8re

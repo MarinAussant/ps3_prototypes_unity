@@ -26,8 +26,8 @@ public class OpenValise : MonoBehaviour
                 {
                     Camera.main.GetComponent<CameraMovement>().MovementToValiseTop(duration / 2);
                 }
-
             }
+
             if (touchManager.isSwipeUp) 
             {
                 if (Camera.main.GetComponent<CameraMovement>().onDownValise)
@@ -57,6 +57,8 @@ public class OpenValise : MonoBehaviour
 
     IEnumerator SmoothOpen(float duration, Vector3 degres)
     {
+
+
         float timeStamp = 0f;
         Quaternion rotationActuelle = transform.rotation;
 
