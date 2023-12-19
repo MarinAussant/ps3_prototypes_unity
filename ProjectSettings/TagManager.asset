@@ -8,6 +8,7 @@ TagManager:
   - CaseInventaire
   - Map
   - particles
+  - Receptacle
   layers:
   - Default
   - TransparentFX
