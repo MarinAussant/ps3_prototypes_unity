@@ -70,6 +70,20 @@ public class LevelInventaireManager : MonoBehaviour
     {
         //Debug.Log(isSelecting);
 
+        if (isSelecting && !is3D)
+        {
+            if (touchManager.canSwipeVertical)
+            {
+                touchManager.canSwipeVertical = false;
+            }
+            if (TouchPosition().y > -5.15)
+            {
+                StartDrag();
+                is3D = true;
+
+            }
+        }
+
         if (Input.touchCount == 1)
         {
             if (Input.touches[0].phase == TouchPhase.Began && canTouch)
@@ -115,20 +129,6 @@ public class LevelInventaireManager : MonoBehaviour
                 {
                     touchManager.canSwipeVertical = true;
                 }
-            }
-        }
-
-        if (isSelecting && !is3D)
-        {
-            if (touchManager.canSwipeVertical)
-            {
-                touchManager.canSwipeVertical = false;
-            }
-            if (TouchPosition().y > -5.15)
-            {
-                StartDrag();
-                is3D = true;
-
             }
         }
 
@@ -180,12 +180,14 @@ public class LevelInventaireManager : MonoBehaviour
     public void SlideRight()
     {
         canTouch = false;
+        isSelecting = null;
         StartCoroutine(SmoothSlideRight());
     }
 
     public void SlideLeft()
     {
         canTouch = false;
+        isSelecting = null;
         StartCoroutine(SmoothSlideLeft());
     }
 
