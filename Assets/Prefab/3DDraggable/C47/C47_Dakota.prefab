@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: C47_Dakota
       objectReference: {fileID: 0}
+    - target: {fileID: 2918904241550143408, guid: 13e46b7389dc20042b2b90c82e242d5b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6cb32b3f53a327d49b7f1c1a46cd2839, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

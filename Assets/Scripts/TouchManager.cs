@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TouchManager : MonoBehaviour
 {
+    public bool canTouch;
 
     public bool isTouching;
     public bool isJustClicking;
@@ -30,6 +31,8 @@ public class TouchManager : MonoBehaviour
 
     private void Start()
     {
+        canTouch = true;
+
         isTouching = false;
         isJustClicking = false;
 
@@ -48,7 +51,7 @@ public class TouchManager : MonoBehaviour
         verifValiseState();
 
         // Start Touching
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && canTouch)
         {
             isTouching = true;
             startTouchPosition = Input.GetTouch(0).position;
@@ -73,7 +76,7 @@ public class TouchManager : MonoBehaviour
 
 
         // End Touching
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended && canTouch)
         {
             isTouching = false;
             endTouchPosition = Input.GetTouch(0).position;
@@ -126,8 +129,7 @@ public class TouchManager : MonoBehaviour
         }
 
     }
-
-    public void verifValiseState()
+    public void verifSwipeState()
     {
         if (Camera.main.GetComponent<CameraMovement>().onDownValise)
         {
@@ -147,7 +149,9 @@ public class TouchManager : MonoBehaviour
             canSwipeVertical = true;
             canSwipeHorizontal = false;
         }
-
+    }
+    public void verifValiseState()
+    {
         if (isDragging)
         {
             canSwipeVertical = false;

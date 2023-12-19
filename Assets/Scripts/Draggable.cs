@@ -115,7 +115,7 @@ public class Draggable : MonoBehaviour
 
                 if (receptacle)
                 {
-                    if(isHovering && receptacle.GetComponent<ObjectContainer>().objects.Count == 0)
+                    if(isHovering && receptacle.GetComponent<ObjectContainer>().objects.Count == 0 && tempPreview)
                     {
 
                         // son placement figurine
@@ -128,7 +128,6 @@ public class Draggable : MonoBehaviour
                         transform.parent.rotation = tempPreview.transform.rotation;
                         receptacle.GetComponent<ObjectContainer>().objects.Add(gameObject);
                         Debug.Log("On met "+gameObject+ " dans "+ receptacle);
-                        Debug.Log(receptacle.GetComponent<ObjectContainer>().Verify());
                         Destroy(tempPreview);
                         isPlaced = true;
                         FindAnyObjectByType<LevelInventaireManager>().EndDrag(true, gameObject);
@@ -165,11 +164,14 @@ public class Draggable : MonoBehaviour
     {
         if(objects.gameObject.tag == "TriggerHoverReceptacle")
         {
-            isHovering = true;
-            tempPreview = Instantiate(himSelfPrevizualisation);
-            tempPreview.transform.position = objects.transform.parent.position;
-            tempPreview.transform.rotation = objects.transform.rotation;
-            receptacle = objects.transform.parent.gameObject;
+            if (!tempPreview && objects.transform.parent.gameObject.GetComponent<ObjectContainer>().objects.Count == 0)
+            {
+                isHovering = true;
+                tempPreview = Instantiate(himSelfPrevizualisation);
+                tempPreview.transform.position = objects.transform.parent.position;
+                tempPreview.transform.rotation = objects.transform.rotation;
+                receptacle = objects.transform.parent.gameObject;
+            }
         }
     }
 
@@ -178,9 +180,12 @@ public class Draggable : MonoBehaviour
         if (objects.gameObject.tag == "TriggerHoverReceptacle")
         {
             isHovering = false;
-            Destroy(tempPreview);
+            if (tempPreview)
+            {
+                Destroy(tempPreview);
+            }
 
-            if (receptacle)
+            if (receptacle && !tempPreview && !isPlaced)
             {
                 receptacle.GetComponent<ObjectContainer>().objects.Clear();
                 Debug.Log("Clear");

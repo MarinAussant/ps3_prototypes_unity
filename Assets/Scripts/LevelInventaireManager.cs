@@ -36,6 +36,8 @@ public class LevelInventaireManager : MonoBehaviour
     public GameObject SlideLeftButton;
     public GameObject SlideRightButton;
 
+    private bool canTouch;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +45,7 @@ public class LevelInventaireManager : MonoBehaviour
         level = 0;
 
         is3D = false;
+        canTouch = true;
 
         //SlideLeftButton.SetActive(false);
         //SlideRightButton.SetActive(false);
@@ -69,7 +72,7 @@ public class LevelInventaireManager : MonoBehaviour
 
         if (Input.touchCount == 1)
         {
-            if (Input.touches[0].phase == TouchPhase.Began)
+            if (Input.touches[0].phase == TouchPhase.Began && canTouch)
             {
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(Input.touches[0].position.x, Input.touches[0].position.y, Camera.main.farClipPlane)), out var info))
                 {
@@ -85,12 +88,14 @@ public class LevelInventaireManager : MonoBehaviour
 
         if (Input.touchCount == 1)
         {
-            if (Input.touches[0].phase == TouchPhase.Ended)
+            if (Input.touches[0].phase == TouchPhase.Ended && canTouch)
             {
                 if (isSelecting)
                 {
                     if (touchManager.lastTouchIsClick())
                     {
+                        touchManager.canTouch = false;
+                        canTouch = false;
                         infoText.text = isSelecting.GetComponent<individualInvElement>().scriptableData.infoText;
                         infoImage.sprite = isSelecting.GetComponent<individualInvElement>().scriptableData.infoImageRef;
                         infoTitre.text = isSelecting.GetComponent<individualInvElement>().scriptableData.objectName;
@@ -105,11 +110,20 @@ public class LevelInventaireManager : MonoBehaviour
                     }
 
                 }
+
+                if (!touchManager.canSwipeVertical)
+                {
+                    touchManager.canSwipeVertical = true;
+                }
             }
         }
 
         if (isSelecting && !is3D)
         {
+            if (touchManager.canSwipeVertical)
+            {
+                touchManager.canSwipeVertical = false;
+            }
             if (TouchPosition().y > -5.15)
             {
                 StartDrag();
@@ -139,7 +153,7 @@ public class LevelInventaireManager : MonoBehaviour
         {
             foreach (Draggable draggable in listObjetPlace)
             {
-                Destroy(draggable.gameObject);
+                Destroy(draggable.transform.parent.gameObject);
             }
             NextLevel();
         }
@@ -165,11 +179,13 @@ public class LevelInventaireManager : MonoBehaviour
 
     public void SlideRight()
     {
+        canTouch = false;
         StartCoroutine(SmoothSlideRight());
     }
 
     public void SlideLeft()
     {
+        canTouch = false;
         StartCoroutine(SmoothSlideLeft());
     }
 
@@ -195,6 +211,7 @@ public class LevelInventaireManager : MonoBehaviour
         }
 
         transform.position = destination;
+        canTouch = true;
     }
 
     IEnumerator SmoothSlideLeft()
@@ -219,6 +236,7 @@ public class LevelInventaireManager : MonoBehaviour
         }
 
         transform.position = destination;
+        canTouch = true;
     }
 
     public void NextLevel()
@@ -285,7 +303,7 @@ public class LevelInventaireManager : MonoBehaviour
             
             inventairePlace.Remove(leDraggable.GetComponent<Draggable>().attachScriptableDrag);
             inventaire.Add(leDraggable.GetComponent<Draggable>().attachScriptableDrag);
-            Destroy(leDraggable);
+            Destroy(leDraggable.transform.parent.gameObject);
             isSelecting = null;
 
             ReloadInv();
@@ -301,7 +319,7 @@ public class LevelInventaireManager : MonoBehaviour
     {
         inventairePlace.Remove(leDraggable.GetComponent<Draggable>().attachScriptableDrag);
         inventaire.Add(leDraggable.GetComponent<Draggable>().attachScriptableDrag);
-        Destroy(leDraggable);
+        Destroy(leDraggable.transform.parent.gameObject);
         isSelecting = null;
 
         ReloadInv();
@@ -356,6 +374,8 @@ public class LevelInventaireManager : MonoBehaviour
     public void desactivateInformation()
     {
         infoUiArea.SetActive(false);
+        touchManager.canTouch = true;
+        canTouch = true;
     }
 
     public Vector3 TouchPosition()
