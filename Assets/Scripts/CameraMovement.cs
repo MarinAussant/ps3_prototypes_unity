@@ -24,10 +24,17 @@ public class CameraMovement : MonoBehaviour
 
     //private Button activeButton;
 
+    public AudioClip soundWallet;
+    public AudioClip soundToMap;
+    public AudioClip soundToCarnet;
+
+    public AudioSource audioSource;
 
     private void Start()
     {
         offValise = true;
+
+        audioSource.volume = 0f;
     }
 
     public void MovementToValiseDown(float duration)
@@ -37,6 +44,10 @@ public class CameraMovement : MonoBehaviour
 
         onTopValise = false;
         offValise = false;
+
+        audioSource.volume = 0.3f;
+        audioSource.clip = soundToCarnet;
+        audioSource.Play();
 
         StartCoroutine(ToValiseDown(duration));
     }
@@ -49,6 +60,10 @@ public class CameraMovement : MonoBehaviour
         onDownValise = false;
         offValise = false;
 
+        audioSource.volume = 0.3f;
+        audioSource.clip = soundToMap;
+        audioSource.Play();
+
         StartCoroutine(ToValiseTop(duration));
     }
 
@@ -60,6 +75,10 @@ public class CameraMovement : MonoBehaviour
 
         onTopValise = false;
         onDownValise = false;
+
+        /*audioSource.volume = 0.1f;
+        audioSource.clip = soundWallet;
+        audioSource.Play();*/
 
         StartCoroutine(ToInitial(duration));
     }
@@ -178,6 +197,4 @@ public class CameraMovement : MonoBehaviour
         offValise = true;
 
     }
-
-
 }

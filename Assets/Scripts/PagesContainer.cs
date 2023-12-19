@@ -31,10 +31,16 @@ public class PagesContainer : MonoBehaviour
 
     private TouchManager touchManager;
 
+    public AudioClip soundPage1;
+    public AudioClip soundPage2;
+    public AudioClip soundPage3;
+    public AudioSource audioSource;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource.volume = 0.5f;
 
         touchManager = FindAnyObjectByType<TouchManager>();
         transform.position = new Vector3(transform.position.x, -4.01f, transform.position.z + 0.1f);
@@ -121,6 +127,8 @@ public class PagesContainer : MonoBehaviour
                 nextPages[0].transform.position = new Vector3(pivotPoint.position.x - 1f + frontPageOffset.x, pivotPoint.position.y + frontPageOffset.y - 0.993f, pivotPoint.position.z + frontPageOffset.z - 0.025f);
             }
 
+            PlayRandomSound();
+
             //On tourne la page
             StartCoroutine(RightPageAnimation(timeToAction / 2, actualPages[1]));
             //actualPages[1].transform.RotateAround(transform.position, transform.up, 180);
@@ -179,6 +187,8 @@ public class PagesContainer : MonoBehaviour
                 nextPages[1].transform.position = new Vector3(transform.position.x + 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z);
             }
 
+            PlayRandomSound();
+
             //On tourne la page
             StartCoroutine(LeftPageAnimation(timeToAction / 2, actualPages[0]));
             //actualPages[0].transform.RotateAround(transform.position, transform.up, -180);
@@ -215,6 +225,15 @@ public class PagesContainer : MonoBehaviour
             }
 
         }
+    }
+
+
+    public void PlayRandomSound()
+    {
+        AudioClip[] soundList = {soundPage1, soundPage2, soundPage3};
+
+        audioSource.clip = soundList[UnityEngine.Random.Range(0, 2)];
+        audioSource.Play();
     }
 
     IEnumerator focusOnOtherPage(Vector3 destination, float duration)
