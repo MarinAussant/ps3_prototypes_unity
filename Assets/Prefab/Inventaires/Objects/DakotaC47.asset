@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b492ed34371ff654b811bcb4895825c5, type: 3}
+  m_Name: DakotaC47
+  m_EditorClassIdentifier: 
+  objectName: Dakota C-47
+  id: 8177
+  objectDraggable: {fileID: 1683804398375404618, guid: 9a74b0848e3f4ef4a9b91ee9ce50bbf7, type: 3}
+  imageRef: {fileID: 21300000, guid: abbbddf6c75e9b841a5bdec39a476c59, type: 3}
+  infoText: "Le Douglas C-47 Baptis\xE9 Dakota par la Royal Air Force. C\u2019est
+    un avion de transport am\xE9ricain, polyvalent, robuste et d'entretien ais\xE9.
+    Il fut utilis\xE9 sur tous les fronts durant la Seconde Guerre mondiale. Il est
+    toujours tr\xE8s attendu par les soldats au front, car il apporte notamment le
+    courrier et les colis, qui sont les seuls liens avec la famille et le pays."

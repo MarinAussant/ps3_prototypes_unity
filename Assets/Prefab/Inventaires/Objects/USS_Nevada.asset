@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b492ed34371ff654b811bcb4895825c5, type: 3}
+  m_Name: USS_Nevada
+  m_EditorClassIdentifier: 
+  objectName: USS Nevada
+  id: 0
+  objectDraggable: {fileID: 7945507383920602465, guid: 3c91f2afadd5cda48a211e91013202af, type: 3}
+  imageRef: {fileID: 21300000, guid: 6608a495a8a20b94e9341fce967dd698, type: 3}
+  infoText: "L'USS Nevada (BB-36) est un cuirass\xE9 de la marine am\xE9ricaine,
+    second navire \xE0 \xEAtre nomm\xE9 d'apr\xE8s le 36e \xC9tat am\xE9ricain. Lanc\xE9
+    en 1914, le Nevada marquait un bond en avant dans la technologie des dreadnoughts.
+    Durant le d\xE9barquement, il soutient l'assaut sur Utah Beach, employant ensuite
+    ses canons contre des positions allemandes prot\xE9geant Cherbourg."

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ajax
+  m_Name: LCT_Canadien
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -26,19 +26,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: a26c30fc1a7e47e4697f02f4f2536206, type: 3}
+        m_Texture: {fileID: 2800000, guid: ac7019f4214800845947d0ec4a9ce039, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
-        m_Texture: {fileID: 2800000, guid: deb9718233a3e7344901f3a60fbc6669, type: 3}
+        m_Texture: {fileID: 2800000, guid: 646c8b9ac66181d40b6a2f75fe99a65b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailMask:
-        m_Texture: {fileID: 2800000, guid: 60b8ee7f088ac9047b1cf328f3850d27, type: 3}
+        m_Texture: {fileID: 2800000, guid: 54449b652d46cb84e938a757760443d8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
-        m_Texture: {fileID: 2800000, guid: a26c30fc1a7e47e4697f02f4f2536206, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -46,7 +46,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: eef0ea45056bc5147be0baf3e1d287b3, type: 3}
+        m_Texture: {fileID: 2800000, guid: b4cc92e6baccbc545ae7ba3657bc16e1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -68,18 +68,18 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.332
+    - _Glossiness: 0.205
     - _GlossyReflections: 1
-    - _Metallic: 0
+    - _Metallic: 0.185
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _UVSec: 1
+    - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

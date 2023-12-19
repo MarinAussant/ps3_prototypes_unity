@@ -108,6 +108,7 @@ public class Draggable : MonoBehaviour
                         transform.parent.position = new Vector3(tempPreview.transform.position.x, tempPreview.transform.position.y, tempPreview.transform.position.z - 0.1f);
                         transform.parent.rotation = tempPreview.transform.rotation;
                         receptacle.GetComponent<ObjectContainer>().objects.Add(gameObject);
+                        Debug.Log("On met "+gameObject+ " dans "+ receptacle);
                         Debug.Log(receptacle.GetComponent<ObjectContainer>().Verify());
                         Destroy(tempPreview);
                         isPlaced = true;
@@ -148,8 +149,9 @@ public class Draggable : MonoBehaviour
 
             if (receptacle)
             {
-                    receptacle.GetComponent<ObjectContainer>().objects.Clear();
-                    receptacle = null;
+                receptacle.GetComponent<ObjectContainer>().objects.Clear();
+                Debug.Log("Clear");
+                receptacle = null;
             }
         }
     }

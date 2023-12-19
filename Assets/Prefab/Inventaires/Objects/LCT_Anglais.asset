@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b492ed34371ff654b811bcb4895825c5, type: 3}
+  m_Name: LCT_Anglais
+  m_EditorClassIdentifier: 
+  objectName: LCT Anglais
+  id: 0
+  objectDraggable: {fileID: 6853376485700761648, guid: 8d1e4577fa2a1c74cb6bddfb05959169, type: 3}
+  imageRef: {fileID: 21300000, guid: 247374307d5db6f45b7e4535f0d210c9, type: 3}
+  infoText: "Un Landing Craft Tank est une barge de d\xE9barquement destin\xE9e \xE0
+    l'assaut amphibie et au transport de chars de combat sur des t\xEAtes de pont.
+    Les premiers exemples sont apparus pendant la Seconde Guerre mondiale o\xF9 ils
+    ont \xE9t\xE9 utilis\xE9s par la Royal Navy et l'United States Navy."

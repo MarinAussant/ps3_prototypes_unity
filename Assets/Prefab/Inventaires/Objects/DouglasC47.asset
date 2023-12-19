@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Douglas C-47
   id: 8177
-  objectDraggable: {fileID: 5086167855366001200, guid: c2b783b2568b17948b2fd5fab26b13e2, type: 3}
+  objectDraggable: {fileID: 1683804398375404618, guid: 1b0d552be8ee72a4f9022d8545e20465, type: 3}
   imageRef: {fileID: 21300000, guid: abbbddf6c75e9b841a5bdec39a476c59, type: 3}
   infoText: "Le Douglas C-47 est un avion de transport am\xE9ricain, polyvalent,
     robuste et d'entretien ais\xE9. Il fut utilis\xE9 sur tous les fronts durant
