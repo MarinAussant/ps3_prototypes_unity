@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b492ed34371ff654b811bcb4895825c5, type: 3}
   m_Name: Montcalm
   m_EditorClassIdentifier: 
-  objectName: Montclam
+  objectName: Montcalm
   id: 0
   objectDraggable: {fileID: 4802358813913204139, guid: 393b9fe775179f143bdadab3be27ae13, type: 3}
   imageRef: {fileID: 21300000, guid: d6a809d8c324fac418517a6293cce9e9, type: 3}
+  infoImageRef: {fileID: 21300000, guid: cfb239a61fac94847b5c8df10f6a44ac, type: 3}
   infoText: "Le Montcalm est un croiseur l\xE9ger de la Marine nationale fran\xE7aise
     qui combattit pendant la Seconde Guerre mondiale. Nomm\xE9 en l'honneur du lieutenant-g\xE9n\xE9ral
     Montcalm , il est lanc\xE9 en 1935 et fait partie de la classe La Galissonni\xE8re.

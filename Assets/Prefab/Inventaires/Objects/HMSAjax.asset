@@ -16,6 +16,7 @@ MonoBehaviour:
   id: 7543
   objectDraggable: {fileID: 4239482484146342718, guid: 734673e61bf34be47b0446f43d47380f, type: 3}
   imageRef: {fileID: 21300000, guid: 479caad9b81f92448bf6cf12957cce5f, type: 3}
+  infoImageRef: {fileID: 21300000, guid: 610e4e1dc860de4418d7522494612138, type: 3}
   infoText: "Le HMS Ajax est un croiseur l\xE9ger de classe Leander de la Royal Navy
     qui sert durant la Seconde Guerre mondiale. Il soutient \xE9galement le d\xE9barquement
     sur Gold Beach en Normandie le 6 juin 1944, en canonnant la batterie de Longues-sur-Mer.

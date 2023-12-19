@@ -16,6 +16,7 @@ MonoBehaviour:
   id: 8177
   objectDraggable: {fileID: 1683804398375404618, guid: 1b0d552be8ee72a4f9022d8545e20465, type: 3}
   imageRef: {fileID: 21300000, guid: abbbddf6c75e9b841a5bdec39a476c59, type: 3}
+  infoImageRef: {fileID: 21300000, guid: f696663d2a69a2348b85b9b9be43b0bf, type: 3}
   infoText: "Le Douglas C-47 est un avion de transport am\xE9ricain, polyvalent,
     robuste et d'entretien ais\xE9. Il fut utilis\xE9 sur tous les fronts durant
     la Seconde Guerre mondiale. Il est essentiellement utilis\xE9 pour les parachutages,

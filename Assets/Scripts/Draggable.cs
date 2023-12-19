@@ -123,7 +123,6 @@ public class Draggable : MonoBehaviour
                         particleSystemPlacement.Clear();
                         particleSystemPlacement.Play();
                         particlePlacement.transform.position = transform.position;
-                        particlePlacement.transform.rotation = transform.rotation;
 
                         transform.parent.position = new Vector3(tempPreview.transform.position.x, tempPreview.transform.position.y, tempPreview.transform.position.z - 0.1f);
                         transform.parent.rotation = tempPreview.transform.rotation;
