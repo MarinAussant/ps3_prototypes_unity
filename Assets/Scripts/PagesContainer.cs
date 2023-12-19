@@ -215,14 +215,11 @@ public class PagesContainer : MonoBehaviour
                 {
                     nextPages[1] = null;
                 }
-
-
             }
             else
             {
                 actualPages[1] = null;
             }
-
         }
 
 
