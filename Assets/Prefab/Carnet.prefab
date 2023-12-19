@@ -80,13 +80,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pivotPoint: {fileID: 2645467593724157338}
+  level: 0
   pagesList:
   - {fileID: 1229862635966861052, guid: f726d3f71a7e4c741a449465ce29d7b2, type: 3}
   - {fileID: 1229862635966861052, guid: 6e7b2c8e37db8b24cb49e224c609af03, type: 3}
   - {fileID: 1229862635966861052, guid: aec65553036266b4b9600e18ad83ef14, type: 3}
   pagesList2:
   - {fileID: 1229862635966861052, guid: 24d69a5dad2a5264bb66e2f26762da7b, type: 3}
-  - {fileID: 1229862635966861052, guid: 33412b16e4057924aa434a199a661a1b, type: 3}
+  - {fileID: 1229862635966861052, guid: bf09923bc91a77144a8b47ea4f64bdd3, type: 3}
   - {fileID: 1229862635966861052, guid: aec65553036266b4b9600e18ad83ef14, type: 3}
   pagesList3:
   - {fileID: 1229862635966861052, guid: 24d69a5dad2a5264bb66e2f26762da7b, type: 3}
@@ -94,9 +95,9 @@ MonoBehaviour:
   - {fileID: 1229862635966861052, guid: f236fc179a94de04d87f06895ae9f583, type: 3}
   timeToAction: 0.4
   offsetFocus: 2
+  soundPage1: {fileID: 0}
   soundPage2: {fileID: 8300000, guid: cb4bd25a695fb6445b6a703905b5c790, type: 3}
   soundPage3: {fileID: 8300000, guid: c1723512016fb4641be808430f77ab44, type: 3}
-  soundPage4: {fileID: 8300000, guid: b86d31a33554a8a4eaa401ede1b82172, type: 3}
   audioSource: {fileID: 7037581716835024136}
 --- !u!82 &7037581716835024136
 AudioSource:
