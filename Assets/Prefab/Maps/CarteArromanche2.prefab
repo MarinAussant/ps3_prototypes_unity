@@ -132,6 +132,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RouteFlottante7
       objectReference: {fileID: 0}
+    - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_TagString
+      value: Receptacle
+      objectReference: {fileID: 0}
     - target: {fileID: 3279389023401808814, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: needObject
       value: 
@@ -205,6 +209,10 @@ PrefabInstance:
     - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: m_Name
       value: Blockship
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_TagString
+      value: Receptacle
       objectReference: {fileID: 0}
     - target: {fileID: 3279389023401808814, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: needObject
@@ -280,6 +288,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RouteFlottante4
       objectReference: {fileID: 0}
+    - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_TagString
+      value: Receptacle
+      objectReference: {fileID: 0}
     - target: {fileID: 3279389023401808814, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: needObject
       value: 
@@ -353,6 +365,10 @@ PrefabInstance:
     - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: m_Name
       value: RouteFlottante8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_TagString
+      value: Receptacle
       objectReference: {fileID: 0}
     - target: {fileID: 3279389023401808814, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: needObject
@@ -428,6 +444,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RouteFlottante3
       objectReference: {fileID: 0}
+    - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_TagString
+      value: Receptacle
+      objectReference: {fileID: 0}
     - target: {fileID: 3279389023401808814, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: needObject
       value: 
@@ -501,6 +521,10 @@ PrefabInstance:
     - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: m_Name
       value: RouteFlottante6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_TagString
+      value: Receptacle
       objectReference: {fileID: 0}
     - target: {fileID: 3279389023401808814, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: needObject
@@ -576,6 +600,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RouteFlottante9
       objectReference: {fileID: 0}
+    - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_TagString
+      value: Receptacle
+      objectReference: {fileID: 0}
     - target: {fileID: 3279389023401808814, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: needObject
       value: 
@@ -649,6 +677,10 @@ PrefabInstance:
     - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: m_Name
       value: CaissonPhoenix
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_TagString
+      value: Receptacle
       objectReference: {fileID: 0}
     - target: {fileID: 3279389023401808814, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: needObject
@@ -724,6 +756,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blockship2
       objectReference: {fileID: 0}
+    - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_TagString
+      value: Receptacle
+      objectReference: {fileID: 0}
     - target: {fileID: 3279389023401808814, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: needObject
       value: 
@@ -797,6 +833,10 @@ PrefabInstance:
     - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: m_Name
       value: CaissonPhoenix3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_TagString
+      value: Receptacle
       objectReference: {fileID: 0}
     - target: {fileID: 3279389023401808814, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: needObject
@@ -872,6 +912,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RouteFlottante
       objectReference: {fileID: 0}
+    - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_TagString
+      value: Receptacle
+      objectReference: {fileID: 0}
     - target: {fileID: 3279389023401808814, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: needObject
       value: 
@@ -945,6 +989,10 @@ PrefabInstance:
     - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: m_Name
       value: RouteFlottante5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_TagString
+      value: Receptacle
       objectReference: {fileID: 0}
     - target: {fileID: 3279389023401808814, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: needObject
@@ -1020,6 +1068,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RouteFlottante2
       objectReference: {fileID: 0}
+    - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_TagString
+      value: Receptacle
+      objectReference: {fileID: 0}
     - target: {fileID: 3279389023401808814, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: needObject
       value: 
@@ -1093,6 +1145,10 @@ PrefabInstance:
     - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: m_Name
       value: CaissonPhoenix2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_TagString
+      value: Receptacle
       objectReference: {fileID: 0}
     - target: {fileID: 3279389023401808814, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: needObject

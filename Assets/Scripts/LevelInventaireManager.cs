@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -117,6 +118,31 @@ public class LevelInventaireManager : MonoBehaviour
             }
         }
 
+    }
+
+    public void Verif()
+    {
+        Draggable[] listObjetPlace = FindObjectsOfType<Draggable>();
+        int compteur = 0;
+        int reachScore = GameObject.FindGameObjectsWithTag("Receptacle").Length;
+        Debug.Log("REACH SCORE : "+reachScore);
+
+        foreach (Draggable draggable in listObjetPlace)
+        {
+            if (draggable.VerifyDraggable())
+            {
+                compteur++;
+            }
+        }
+
+        if (compteur == reachScore)
+        {
+            foreach (Draggable draggable in listObjetPlace)
+            {
+                Destroy(draggable.gameObject);
+            }
+            NextLevel();
+        }
     }
 
     public void loadInventaire(int numNiveau)
@@ -269,6 +295,16 @@ public class LevelInventaireManager : MonoBehaviour
             is3D = false;
         }
 
+    }
+
+    public void Dismiss(GameObject leDraggable)
+    {
+        inventairePlace.Remove(leDraggable.GetComponent<Draggable>().attachScriptableDrag);
+        inventaire.Add(leDraggable.GetComponent<Draggable>().attachScriptableDrag);
+        Destroy(leDraggable);
+        isSelecting = null;
+
+        ReloadInv();
     }
 
     public void ReloadInv()

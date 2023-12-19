@@ -117,7 +117,7 @@ MonoBehaviour:
   isHovering: 0
   isPlaced: 0
   himSelfPrevizualisation: {fileID: 4086349285447445887, guid: 07fc674db36ea204991520ba4f52afc4, type: 3}
-  verifCode: 0
+  verifCode: 4152
   attachScriptableDrag: {fileID: 0}
   scriptAudio: {fileID: 0}
   particlePlacement: {fileID: 0}
