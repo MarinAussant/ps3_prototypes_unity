@@ -22,12 +22,17 @@ public class Draggable : MonoBehaviour
     public ScriptableInvDrag attachScriptableDrag;
 
     private TouchManager touchManager;
-    
+
+    public AudioPlacement scriptAudio;
+
 
     // Start is called before the first frame update
     void Start()
     {
         touchManager = FindAnyObjectByType<TouchManager>();
+
+        //GameObject objectAudio = GameObject.Find("Ouverture");
+        scriptAudio = FindAnyObjectByType<AudioPlacement>();
     }
 
     // Update is called once per frame
@@ -105,6 +110,10 @@ public class Draggable : MonoBehaviour
                 {
                     if(isHovering && receptacle.GetComponent<ObjectContainer>().objects.Count == 0)
                     {
+
+                        // son placement figurine
+                        scriptAudio.PlayRandomSound();
+
                         transform.parent.position = new Vector3(tempPreview.transform.position.x, tempPreview.transform.position.y, tempPreview.transform.position.z - 0.1f);
                         transform.parent.rotation = tempPreview.transform.rotation;
                         receptacle.GetComponent<ObjectContainer>().objects.Add(gameObject);
