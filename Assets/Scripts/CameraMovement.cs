@@ -19,6 +19,8 @@ public class CameraMovement : MonoBehaviour
     public Vector3 rotationValiseTop;
     public Vector3 rotationInitial;
 
+    public LevelInventaireManager levelInventaireManager;
+
     public Button enterValiseButton;
     public Button getCarnetButton;
 
@@ -48,6 +50,8 @@ public class CameraMovement : MonoBehaviour
         audioSource.volume = 0.2f;
         audioSource.clip = soundToCarnet;
         audioSource.Play();
+
+        levelInventaireManager.activateUI(false);
 
         StartCoroutine(ToValiseDown(duration));
     }
@@ -79,6 +83,8 @@ public class CameraMovement : MonoBehaviour
         /*audioSource.volume = 0.1f;
         audioSource.clip = soundWallet;
         audioSource.Play();*/
+
+        levelInventaireManager.activateUI(false);
 
         StartCoroutine(ToInitial(duration));
     }
@@ -155,6 +161,8 @@ public class CameraMovement : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(rotationValiseTop);
         transform.position = positionValiseTop;
+
+        levelInventaireManager.activateUI(true);
 
         onTopValise = true;
 

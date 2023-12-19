@@ -43,7 +43,6 @@ public class LevelInventaireManager : MonoBehaviour
 
         is3D = false;
 
-        infoUiArea.SetActive(false);
         //SlideLeftButton.SetActive(false);
         //SlideRightButton.SetActive(false);
 
@@ -57,6 +56,9 @@ public class LevelInventaireManager : MonoBehaviour
         touchManager = FindAnyObjectByType<TouchManager>();
 
         loadInventaire(0);
+
+        infoUiArea.SetActive(false);
+        activateUI(false);
     }
 
     // Update is called once per frame
@@ -292,6 +294,25 @@ public class LevelInventaireManager : MonoBehaviour
             }
         }
 
+    }
+
+    public void activateUI(bool etat)
+    {
+        bandeArea.SetActive(etat);
+        SlideLeftButton.SetActive(etat);
+        SlideRightButton.SetActive(etat);
+        if (etat)
+        {
+            ReloadInv();
+        }
+        else
+        {
+            foreach (Transform child in transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        
     }
 
     public void desactivateInformation()
