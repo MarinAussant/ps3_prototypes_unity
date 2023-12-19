@@ -123,6 +123,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150030234885995428}
     m_Modifications:
+    - target: {fileID: 1114035125917261938, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: m_Name
       value: Blockship
@@ -201,6 +205,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150030234885995428}
     m_Modifications:
+    - target: {fileID: 1114035125917261938, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: m_Name
       value: CaissonPhoenix
@@ -279,6 +287,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150030234885995428}
     m_Modifications:
+    - target: {fileID: 1114035125917261938, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: m_Name
       value: Blockship2
@@ -357,6 +369,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150030234885995428}
     m_Modifications:
+    - target: {fileID: 1114035125917261938, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: m_Name
       value: Bonbardon4
@@ -435,6 +451,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150030234885995428}
     m_Modifications:
+    - target: {fileID: 1114035125917261938, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: m_Name
       value: Bombardon
@@ -513,6 +533,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150030234885995428}
     m_Modifications:
+    - target: {fileID: 1114035125917261938, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: m_Name
       value: CaissonPhoenix2
@@ -591,6 +615,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150030234885995428}
     m_Modifications:
+    - target: {fileID: 1114035125917261938, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: m_Name
       value: Bombardon2
@@ -669,6 +697,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150030234885995428}
     m_Modifications:
+    - target: {fileID: 1114035125917261938, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: m_Name
       value: Explosif
@@ -747,6 +779,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150030234885995428}
     m_Modifications:
+    - target: {fileID: 1114035125917261938, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1388931505748215040, guid: 3facc4e6e7b2184458e55f0fe7cdd84a, type: 3}
       propertyPath: m_Name
       value: Bombardon3

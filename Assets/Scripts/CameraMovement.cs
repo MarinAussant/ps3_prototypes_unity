@@ -32,8 +32,12 @@ public class CameraMovement : MonoBehaviour
 
     public AudioSource audioSource;
 
+    private TouchManager touchManager;
+
     private void Start()
     {
+        touchManager = FindAnyObjectByType<TouchManager>();
+
         offValise = true;
         getCarnetButton.gameObject.SetActive(false);
 
@@ -130,6 +134,7 @@ public class CameraMovement : MonoBehaviour
         getCarnetButton.gameObject.SetActive(true);
 
         onDownValise = true;
+        touchManager.verifSwipeState();
 
     }
 
@@ -166,6 +171,8 @@ public class CameraMovement : MonoBehaviour
         levelInventaireManager.activateUI(true);
 
         onTopValise = true;
+        touchManager.verifSwipeState();
+
 
     }
 
@@ -204,6 +211,7 @@ public class CameraMovement : MonoBehaviour
         enterValiseButton.gameObject.SetActive(true);
 
         offValise = true;
+        touchManager.verifSwipeState();
 
     }
 }
