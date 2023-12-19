@@ -15,7 +15,11 @@ public class LevelInventaireManager : MonoBehaviour
     public List<ScriptableInvDrag> inventaire;
     public List<ScriptableInvDrag> inventairePlace;
 
+    public List<GameObject> listCartes;
+
     private TouchManager touchManager;
+
+    public int level = 0;
 
     private GameObject isSelecting;
     private bool is3D;
@@ -25,6 +29,9 @@ public class LevelInventaireManager : MonoBehaviour
     public Image infoImage;
     public TextMeshProUGUI infoTitre;
 
+    public GameObject bandeArea;
+    public TextMeshProUGUI titreNiveau;
+
     public GameObject SlideLeftButton;
     public GameObject SlideRightButton;
 
@@ -32,6 +39,8 @@ public class LevelInventaireManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        level = 0;
+
         is3D = false;
 
         infoUiArea.SetActive(false);
@@ -40,14 +49,14 @@ public class LevelInventaireManager : MonoBehaviour
 
         inventairePlace = new List<ScriptableInvDrag>();
         inventaire = new List<ScriptableInvDrag>();
-        foreach (ScriptableInvDrag invObject in inventaireList[1].objectList)
+        foreach (ScriptableInvDrag invObject in inventaireList[0].objectList)
         {
             inventaire.Add(invObject);
         }
 
         touchManager = FindAnyObjectByType<TouchManager>();
 
-        loadInventaire(1);
+        loadInventaire(0);
     }
 
     // Update is called once per frame
@@ -182,6 +191,46 @@ public class LevelInventaireManager : MonoBehaviour
         }
 
         transform.position = destination;
+    }
+
+    public void NextLevel()
+    {
+
+        level += 1;
+        GameObject laMap = GameObject.FindGameObjectsWithTag("Map")[0];
+        GameObject newMap = Instantiate(listCartes[level], transform.parent);
+        newMap.transform.position = laMap.transform.position;
+
+        switch (level)
+        {
+            case 0:
+                break;
+
+            case 1:
+                newMap.transform.position = new Vector3(newMap.transform.position.x + 0.25f,newMap.transform.position.y,newMap.transform.position.z);
+                titreNiveau.text = "Arromanches #1";
+                break;
+
+            case 2:
+                newMap.transform.position = new Vector3(newMap.transform.position.x - 0.3f, newMap.transform.position.y, newMap.transform.position.z);
+                titreNiveau.text = "Arromanches #2";
+                break;
+        }
+
+        Destroy(laMap);
+
+        inventaire.Clear();
+        foreach (ScriptableInvDrag invObject in inventaireList[level].objectList)
+        {
+            inventaire.Add(invObject);
+        }
+        ReloadInv();
+
+        PagesContainer containerDePage = FindAnyObjectByType<PagesContainer>();
+        if (containerDePage != null)
+        {
+            containerDePage.NextLevel();
+        }
     }
 
     public void StartDrag()

@@ -15,8 +15,14 @@ public class PagesContainer : MonoBehaviour
     //Rotation Pages
     public Transform pivotPoint;
 
+    public int level;
+
     // Gestion pages
     public GameObject[] pagesList;
+    public GameObject[] pagesList2;
+    public GameObject[] pagesList3;
+
+    private GameObject[] actualList;
 
     private GameObject[] actualPages;
     private GameObject[] nextPages;
@@ -35,6 +41,7 @@ public class PagesContainer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        level = FindAnyObjectByType<LevelInventaireManager>().level;
 
         touchManager = FindAnyObjectByType<TouchManager>();
         transform.position = new Vector3(transform.position.x, -4.01f, transform.position.z + 0.1f);
@@ -46,6 +53,9 @@ public class PagesContainer : MonoBehaviour
         numPages = new int[2];
         numPages[1] = 1;
 
+
+        LoadPages(level);
+        /*
         if (pagesList[1])
         {
             nextPages[1] = Instantiate(pagesList[1]);
@@ -59,6 +69,7 @@ public class PagesContainer : MonoBehaviour
         actualPages[1].transform.position = new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z);
         actualPages[1].transform.rotation = transform.rotation;
         actualPages[1].transform.localRotation = Quaternion.Euler(0, 180, 0);
+        */
 
     }
 
@@ -103,6 +114,53 @@ public class PagesContainer : MonoBehaviour
         }
     }
 
+    public void NextLevel()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+        level = FindAnyObjectByType<LevelInventaireManager>().level;
+        LoadPages(level);
+    }
+
+    public void LoadPages(int numInv)
+    {
+       
+        Array.Clear(nextPages,0,nextPages.Length);
+        Array.Clear(actualPages, 0, nextPages.Length);
+        Array.Clear(numPages, 0, nextPages.Length);
+
+        switch (numInv)
+        {
+            case 0:
+                actualList = pagesList;
+                break;
+
+            case 1:
+                actualList = pagesList2;
+                break;
+
+            case 2:
+                actualList = pagesList3;
+                break;
+        }
+        if (actualList[1])
+        {
+            nextPages[1] = Instantiate(actualList[1]);
+            nextPages[1].transform.SetParent(transform, false);
+            nextPages[1].transform.position = new Vector3(transform.position.x + 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z);
+            nextPages[1].transform.rotation = transform.rotation;
+            nextPages[1].transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        actualPages[1] = Instantiate(actualList[0]);
+        actualPages[1].transform.SetParent(transform, false);
+        actualPages[1].transform.position = new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z);
+        actualPages[1].transform.rotation = transform.rotation;
+        actualPages[1].transform.localRotation = Quaternion.Euler(0, 180, 0);
+
+        numPages[1] = 1;
+    }
     public void TurnRightPage()
     {
 
@@ -137,9 +195,9 @@ public class PagesContainer : MonoBehaviour
                 actualPages[1].transform.position = new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z);
                 numPages[1] = numPages[1] + 1;
 
-                if (numPages[1] < pagesList.Length)
+                if (numPages[1] < actualList.Length)
                 {
-                    nextPages[1] = Instantiate(pagesList[numPages[1]]);
+                    nextPages[1] = Instantiate(actualList[numPages[1]]);
                     nextPages[1].transform.SetParent(transform, false);
                     nextPages[1].transform.position = new Vector3(transform.position.x + 1f + frontPageOffset.x, transform.position.y + frontPageOffset.y, transform.position.z + frontPageOffset.z);
                     nextPages[1].transform.rotation = transform.rotation;
@@ -197,7 +255,7 @@ public class PagesContainer : MonoBehaviour
 
                 if (numPages[0] > 1)
                 {
-                    nextPages[0] = Instantiate(pagesList[numPages[0] - 2]);
+                    nextPages[0] = Instantiate(actualList[numPages[0] - 2]);
                     nextPages[0].transform.SetParent(transform, false);
                     nextPages[0].transform.position = new Vector3(pivotPoint.position.x - 1f + frontPageOffset.x, pivotPoint.position.y + frontPageOffset.y - 0.993f, pivotPoint.position.z + frontPageOffset.z - 0.025f);
                     nextPages[0].transform.rotation = transform.rotation;

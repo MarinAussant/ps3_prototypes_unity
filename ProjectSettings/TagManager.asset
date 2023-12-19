@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TriggerHoverReceptacle
   - CaseInventaire
+  - Map
   layers:
   - Default
   - TransparentFX
