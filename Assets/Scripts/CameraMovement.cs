@@ -24,6 +24,7 @@ public class CameraMovement : MonoBehaviour
     public Button enterValiseButton;
     public Button getCarnetButton;
 
+    public SpriteRenderer ombreHaute;
     //private Button activeButton;
 
     public AudioClip soundWallet;
@@ -40,8 +41,11 @@ public class CameraMovement : MonoBehaviour
 
         offValise = true;
         getCarnetButton.gameObject.SetActive(false);
+        
 
         audioSource.volume = 0f;
+
+        activeOmbre(false);
     }
 
     public void MovementToValiseDown(float duration)
@@ -73,6 +77,8 @@ public class CameraMovement : MonoBehaviour
         audioSource.clip = soundToMap;
         audioSource.Play();
 
+        activeOmbre(false);
+
         StartCoroutine(ToValiseTop(duration));
     }
 
@@ -90,8 +96,21 @@ public class CameraMovement : MonoBehaviour
         audioSource.Play();*/
 
         levelInventaireManager.activateUI(false);
+        activeOmbre(false);
 
         StartCoroutine(ToInitial(duration));
+    }
+
+    public void activeOmbre(bool condition)
+    {
+        if (condition)
+        {
+            ombreHaute.color = new Color(1, 1, 1, 0.63f);
+        }
+        else
+        {
+            ombreHaute.color = new Color(1, 1, 1, 0);
+        }
     }
 
     public void TakeCarnet()
@@ -132,6 +151,8 @@ public class CameraMovement : MonoBehaviour
         //getCarnetButton.interactable = true;
         enterValiseButton.gameObject.SetActive(false);
         getCarnetButton.gameObject.SetActive(true);
+
+        activeOmbre(true);
 
         onDownValise = true;
         touchManager.verifSwipeState();

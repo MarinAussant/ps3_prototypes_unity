@@ -9,6 +9,9 @@ public class OpenValise : MonoBehaviour
 
     private TouchManager touchManager;
 
+    public GameObject locketHaut;
+    public GameObject locketBat;
+
     public float duration;
 
     private void Start()
@@ -33,7 +36,8 @@ public class OpenValise : MonoBehaviour
                 if (Camera.main.GetComponent<CameraMovement>().onDownValise)
                 {
                     Camera.main.GetComponent<CameraMovement>().MovementToInitial(duration);
-                    StartCoroutine(SmoothOpen(duration, new Vector3(-90, 180, 0)));
+                    //StartCoroutine(SmoothOpen(duration, new Vector3(-90, 180, 0)));
+                    StartCoroutine(SmoothClose(duration, new Vector3(-90, 180, 0)));
                 }
 
                 if (Camera.main.GetComponent<CameraMovement>().onTopValise)
@@ -47,13 +51,126 @@ public class OpenValise : MonoBehaviour
     {
         if (!isOpen)
         {
-            StartCoroutine(SmoothOpen(duration, new Vector3(-180, 180, 0)));
-            Camera.main.GetComponent<CameraMovement>().MovementToValiseDown(duration);
+            StartCoroutine(LockOpenHaut(duration / 2, new Vector3(-210, 180, 0)));
+            StartCoroutine(LockOpenBas(duration / 2, new Vector3(0, 180, 0)));
+            Camera.main.GetComponent<CameraMovement>().MovementToValiseDown(duration*1.5f);
+
         }
        
     }
 
-    
+    IEnumerator LockOpenHaut(float duration, Vector3 degres)
+    {
+
+
+        float timeStamp = 0f;
+        Quaternion rotationActuelle = locketHaut.transform.rotation;
+
+        while (timeStamp < duration)
+        {
+
+            locketHaut.transform.rotation = Quaternion.Lerp(
+            rotationActuelle,
+            Quaternion.Euler(degres),
+            timeStamp / duration
+            );
+
+            timeStamp += Time.deltaTime;
+
+            yield return null;
+
+        }
+
+        locketHaut.transform.rotation = Quaternion.Euler(degres);
+        if (isOpen) isOpen = false;
+        else isOpen = true;
+
+        StartCoroutine(SmoothOpen(duration*2, new Vector3(-180, 180, 0)));
+        //Camera.main.GetComponent<CameraMovement>().MovementToValiseDown(duration*2);
+    }
+
+    IEnumerator LockOpenBas(float duration, Vector3 degres)
+    {
+
+
+        float timeStamp = 0f;
+        Quaternion rotationActuelle = locketBat.transform.rotation;
+
+        while (timeStamp < duration)
+        {
+
+            locketBat.transform.rotation = Quaternion.Lerp(
+            rotationActuelle,
+            Quaternion.Euler(degres),
+            timeStamp / duration
+            );
+
+            timeStamp += Time.deltaTime;
+
+            yield return null;
+
+        }
+
+        locketBat.transform.rotation = Quaternion.Euler(degres);
+        if (isOpen) isOpen = false;
+        else isOpen = true;
+    }
+
+    IEnumerator LockCloseHaut(float duration, Vector3 degres)
+    {
+
+
+        float timeStamp = 0f;
+        Quaternion rotationActuelle = locketHaut.transform.rotation;
+
+        while (timeStamp < duration)
+        {
+
+            locketHaut.transform.rotation = Quaternion.Lerp(
+            rotationActuelle,
+            Quaternion.Euler(degres),
+            timeStamp / duration
+            );
+
+            timeStamp += Time.deltaTime;
+
+            yield return null;
+
+        }
+
+        locketHaut.transform.rotation = Quaternion.Euler(degres);
+        if (isOpen) isOpen = false;
+        else isOpen = true;
+
+    }
+
+    IEnumerator LockCloseBas(float duration, Vector3 degres)
+    {
+
+
+        float timeStamp = 0f;
+        Quaternion rotationActuelle = locketBat.transform.rotation;
+
+        while (timeStamp < duration)
+        {
+
+            locketBat.transform.rotation = Quaternion.Lerp(
+            rotationActuelle,
+            Quaternion.Euler(degres),
+            timeStamp / duration
+            );
+
+            timeStamp += Time.deltaTime;
+
+            yield return null;
+
+        }
+
+        locketBat.transform.rotation = Quaternion.Euler(degres);
+        if (isOpen) isOpen = false;
+        else isOpen = true;
+
+    }
 
     IEnumerator SmoothOpen(float duration, Vector3 degres)
     {
@@ -102,6 +219,8 @@ public class OpenValise : MonoBehaviour
 
         }
 
+        StartCoroutine(LockCloseBas(duration / 2, new Vector3(-90, 180, 0)));
+        StartCoroutine(LockCloseHaut(duration / 2, new Vector3(-90, 180, 0)));
         transform.rotation = Quaternion.Euler(degres);
         isOpen = false;
     }

@@ -23,8 +23,8 @@ public class TouchManager : MonoBehaviour
 
     public GameObject draggingObject;
 
-    private Vector2 startTouchPosition;
-    private Vector2 endTouchPosition;
+    public Vector2 startTouchPosition;
+    public Vector2 endTouchPosition;
 
     public float timeToSwipe = 0.7f;
     private float timer = 0f;

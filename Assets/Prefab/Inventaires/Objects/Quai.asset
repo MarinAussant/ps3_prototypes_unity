@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b492ed34371ff654b811bcb4895825c5, type: 3}
+  m_Name: Quai
+  m_EditorClassIdentifier: 
+  objectName: Quai Flottant
+  id: 8147
+  objectDraggable: {fileID: 2841831129828615501, guid: 336359729b59b594397399f499f76bc6, type: 3}
+  imageRef: {fileID: 21300000, guid: dc8e2c129e428ec43b36457a58d481b4, type: 3}
+  infoImageRef: {fileID: 21300000, guid: c65220c302b5a0a40b1bc9ffe6b66635, type: 3}
+  infoText: "Le quai flottant permet d\u2019assurer le d\xE9chargement des navires
+    de transport. Il est constitu\xE9 d\u2019une plateforme principale pouvant coulisser
+    sur 4 chandelles d\u2019acier. Ces derni\xE8res mesurent plus de 30 m\xE8tres
+    et sont pos\xE9es sur le fond marin. De cette mani\xE8re, la flottaison de la
+    plateforme principale est maintenue. "

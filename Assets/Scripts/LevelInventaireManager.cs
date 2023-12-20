@@ -24,6 +24,7 @@ public class LevelInventaireManager : MonoBehaviour
     public int level = 0;
 
     private GameObject isSelecting;
+    private GameObject colorSelecting;
     private bool is3D;
 
     public GameObject infoUiArea;
@@ -31,6 +32,7 @@ public class LevelInventaireManager : MonoBehaviour
     public UnityEngine.UI.Image infoImage;
     public TextMeshProUGUI infoTitre;
     public GameObject verifButton;
+    public SpriteRenderer spriteSombre;
     //Medaille
     public GameObject bienJoueMedaille;
     public UnityEngine.UI.Image medailleAffiche;
@@ -104,7 +106,13 @@ public class LevelInventaireManager : MonoBehaviour
                 {
                     if (info.collider.gameObject.tag == "CaseInventaire")
                     {
+                        if(colorSelecting)
+                        {
+                            colorSelecting.GetComponent<SpriteRenderer>().color = new Color(1, 0.93f, 0.83f, 1);
+                        }
                         isSelecting = info.collider.gameObject;
+                        colorSelecting = info.collider.gameObject;
+                        isSelecting.GetComponent<SpriteRenderer>().color = new Color(1, 0.778712f, 0.6084906f, 1);
                         //StartDrag();
 
                     }
@@ -118,9 +126,11 @@ public class LevelInventaireManager : MonoBehaviour
             {
                 if (isSelecting)
                 {
+                    
                     if (touchManager.lastTouchIsClick())
                     {
                         touchManager.canTouch = false;
+                        touchManager.startTouchPosition = new Vector2(0,-42);
                         canTouch = false;
                         infoText.text = isSelecting.GetComponent<individualInvElement>().scriptableData.infoText;
                         infoImage.sprite = isSelecting.GetComponent<individualInvElement>().scriptableData.infoImageRef;
@@ -331,9 +341,10 @@ public class LevelInventaireManager : MonoBehaviour
             {
                 inventaire.Add(invObject);
             }
-            ReloadInv();
+            
         }
-        
+        ReloadInv();
+
 
         PagesContainer containerDePage = FindAnyObjectByType<PagesContainer>();
         if (containerDePage != null)
@@ -420,6 +431,14 @@ public class LevelInventaireManager : MonoBehaviour
 
     public void activateUI(bool etat)
     {
+        if (etat)
+        {
+            spriteSombre.color = new Color(1, 1, 1, 0.45f);
+        }
+        else
+        {
+            spriteSombre.color = new Color(1, 1, 1, 0);
+        }
         bandeArea.SetActive(etat);
         SlideLeftButton.SetActive(etat);
         SlideRightButton.SetActive(etat);
@@ -440,8 +459,8 @@ public class LevelInventaireManager : MonoBehaviour
     public void desactivateInformation()
     {
         infoUiArea.SetActive(false);
-        touchManager.canTouch = true;
         canTouch = true;
+        touchManager.canTouch = true;
     }
 
     public Vector3 TouchPosition()
