@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 //using UnityEngine.UIElements;
 
 public class LevelInventaireManager : MonoBehaviour
@@ -27,8 +28,15 @@ public class LevelInventaireManager : MonoBehaviour
 
     public GameObject infoUiArea;
     public TextMeshProUGUI infoText;
-    public Image infoImage;
+    public UnityEngine.UI.Image infoImage;
     public TextMeshProUGUI infoTitre;
+    public GameObject verifButton;
+    //Medaille
+    public GameObject bienJoueMedaille;
+    public UnityEngine.UI.Image medailleAffiche;
+    public SpriteRenderer medaille1;
+    public SpriteRenderer medaille2;
+    public SpriteRenderer medaille3;
 
     public GameObject bandeArea;
     public TextMeshProUGUI titreNiveau;
@@ -63,6 +71,10 @@ public class LevelInventaireManager : MonoBehaviour
 
         infoUiArea.SetActive(false);
         activateUI(false);
+        bienJoueMedaille.SetActive(false);
+        medaille1.color = new Color(255, 255, 255, 0);
+        medaille2.color = new Color(255, 255, 255, 0);
+        medaille3.color = new Color(255, 255, 255, 0);
     }
 
     // Update is called once per frame
@@ -131,6 +143,32 @@ public class LevelInventaireManager : MonoBehaviour
                 }
             }
         }
+
+       
+        
+        GameObject[] listReceptacle = GameObject.FindGameObjectsWithTag("Receptacle");
+        bool estComplet = true;
+        foreach (GameObject receptacle in GameObject.FindGameObjectsWithTag("Receptacle"))
+        {
+            if (receptacle.GetComponent<ObjectContainer>().objects.Count == 0)
+            {
+                estComplet = false;
+            }
+        }
+        if (level == 3)
+        {
+            estComplet = false;
+        }
+
+        if (estComplet)
+        {
+            verifButton.SetActive(true);
+        }
+        else
+        {
+            verifButton.SetActive(false);
+        }
+        
 
     }
 
@@ -245,10 +283,17 @@ public class LevelInventaireManager : MonoBehaviour
     {
 
         level += 1;
+
+        bienJoueMedaille.SetActive(true);
         GameObject laMap = GameObject.FindGameObjectsWithTag("Map")[0];
-        GameObject newMap = Instantiate(listCartes[level], transform.parent);
-        newMap.transform.eulerAngles = new Vector3 (0,0,newMap.transform.eulerAngles.z);
-        newMap.transform.position = laMap.transform.position;
+        GameObject newMap = null;
+        if (level < listCartes.Count)
+        {
+            newMap = Instantiate(listCartes[level], transform.parent);
+            newMap.transform.eulerAngles = new Vector3(0, 0, newMap.transform.eulerAngles.z);
+            newMap.transform.position = laMap.transform.position;
+        }
+        
 
         switch (level)
         {
@@ -257,29 +302,48 @@ public class LevelInventaireManager : MonoBehaviour
 
             case 1:
                 newMap.transform.position = new Vector3(newMap.transform.position.x,newMap.transform.position.y,newMap.transform.position.z);
+                medailleAffiche.sprite = medaille1.sprite;
+                medaille1.color = new Color(255,255,255,255);
                 titreNiveau.text = "Arromanches #1";
                 break;
 
             case 2:
                 newMap.transform.position = new Vector3(newMap.transform.position.x - 0.3f, newMap.transform.position.y, newMap.transform.position.z);
+                medailleAffiche.sprite = medaille2.sprite;
+                medaille2.color = new Color(255, 255, 255, 255);
                 titreNiveau.text = "Arromanches #2";
                 break;
+            case 3:
+                medailleAffiche.sprite = medaille3.sprite;
+                medaille3.color = new Color(255, 255, 255, 255);
+                titreNiveau.text = "Fin !";
+                break;
         }
+
+        Invoke("desafficheBienJoue", 5f);
 
         Destroy(laMap);
 
         inventaire.Clear();
-        foreach (ScriptableInvDrag invObject in inventaireList[level].objectList)
+        if (level < inventaireList.Length)
         {
-            inventaire.Add(invObject);
+            foreach (ScriptableInvDrag invObject in inventaireList[level].objectList)
+            {
+                inventaire.Add(invObject);
+            }
+            ReloadInv();
         }
-        ReloadInv();
+        
 
         PagesContainer containerDePage = FindAnyObjectByType<PagesContainer>();
         if (containerDePage != null)
         {
             containerDePage.NextLevel();
         }
+    }
+    public void desafficheBienJoue()
+    {
+        bienJoueMedaille.SetActive(false);
     }
 
     public void StartDrag()

@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3907514041796132678, guid: d9b5021f4ddd8b44384f03ce93423ab2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d8902fb8faa45134c977511ec9e28387, type: 2}
     - target: {fileID: 919132149155446097, guid: d9b5021f4ddd8b44384f03ce93423ab2, type: 3}
       propertyPath: m_Name
       value: USS Nevada
