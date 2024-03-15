@@ -6,7 +6,7 @@ Jeu réalisé au premier semestre de la deuxième année de la formation Esma Je
 
 ## **Pitch** :
 
-Vous incarnez le petit fils d'un reporter de guerre ayant participé au débarquement sur la plage de Gold Beach en Normandie en 1944 et qui à suivit tout le déroulement de la construction du port artificiel d'Arromanches.
+Vous incarnez le petit fils d'un reporter de guerre ayant participé au débarquement sur la plage de Gold Beach en Normandie en 1944 et qui a suivit tout le déroulement de la construction du port artificiel d'Arromanches.
 Vous devez alors suivre les notes laissées dans son carnet et reconstruire péridode par période les évènements du débarquement et du port.
 
 ## **Contrôles** :
